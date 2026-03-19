@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./css/main.css"/>
+  <link rel="stylesheet" href="./css/reset.css"/>
+
+  <!-- Demo styles -->
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 600px;
+    }
+
+    body {
+      background: #000;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 800px;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #444;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #new.swiper {
+        width: 100%;
+        height: 520px;
+    }
+
+    #new .swiper-slide {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    #new .swiper-slide img{
+        width: 100%;
+        height: auto;
+    }
+  </style>
+</head>
+
+<body id="new">
+  <!-- Swiper -->
+  <div class="swiper newSwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">Slide 1</div>
+      <div class="swiper-slide">Slide 2</div>
+      <div class="swiper-slide">Slide 3</div>
+      <div class="swiper-slide">Slide 4</div>
+      <div class="swiper-slide">Slide 5</div>
+      <div class="swiper-slide">Slide 6</div>
+      <div class="swiper-slide">Slide 7</div>
+      <div class="swiper-slide">Slide 8</div>
+      <div class="swiper-slide">Slide 9</div>
+      <div class="swiper-slide">Slide 10</div>
+      <div class="swiper-slide">Slide 11</div>
+      <div class="swiper-slide">Slide 12</div>
+      <div class="swiper-slide">Slide 13</div>
+      <div class="swiper-slide">Slide 14</div>
+      <div class="swiper-slide">Slide 15</div>
+      <div class="swiper-slide">Slide 16</div>
+      <div class="swiper-slide">Slide 17</div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>    
+    
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".newSwiper", {
+      slidesPerView: 5, //화면에 보이는 개수
+      spaceBetween: 30,
+      loop: true, // 무한 루프
+      pagination: {
+       clickable: true,
+      },
+      navigation: {
+        nextEl: "#new .swiper-button-next",
+        prevEl: "#new .swiper-button-prev",
+      }
+    });
+  </script>
+  <script src="./js/book.js"></script>
+</body>
+
+</html>
