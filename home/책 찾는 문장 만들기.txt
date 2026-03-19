@@ -1,24 +1,3 @@
-sync function fetchBooks(query) {
-            const params = new URLSearchParams({
-                target: "title",
-                query,
-                size: 50
-            });
-            const url = `https://dapi.kakao.com/v3/search/book?${params}`;
-
-            const response = await fetch(url, {
-                method: 'GET',
-                headers: {
-                    Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161"
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP 오류: ${response.status}`);
-            }
-
-            return response.json();
-        }
 
         async function bookData() {
             try {
@@ -55,9 +34,7 @@ sync function fetchBooks(query) {
                         // 요소 생성 및 추가
                         div.innerHTML = `<img src="${doc.thumbnail}">
                         <h3>${doc.title}</h3>
-                        <h6>${doc.authors}</h6>
-                        <p>${doc.contents.substring(0, 60)}</p>
-                        <button>click</button>
+                        <h6>${doc.authors}</h6>                   
                         `
 
                         // section에 div 추가
@@ -68,5 +45,3 @@ sync function fetchBooks(query) {
                 console.log('에러발생', error);
             }
         }
-
-        bookData();

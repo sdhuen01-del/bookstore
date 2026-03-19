@@ -1,0 +1,291 @@
+<header class="site-header">
+
+  <div class="header-container">
+
+    <!-- TOP -->
+    <div class="header-top flex-between">
+
+      <h1 class="logo">
+        <a href="/">
+          <img src="images/logo.png" alt="북큐브">
+        </a>
+      </h1>
+
+      <form class="search-box flex" role="search">
+
+        <label for="search" class="sr-only">검색</label>
+        <input id="search" type="search" placeholder="검색어를 입력하세요">
+
+        <button type="submit">검색</button>
+
+      </form>
+
+      <nav class="user-menu" aria-label="사용자 메뉴">
+        <ul class="flex">
+          <li><a href="#">로그인</a></li>
+          <li><a href="#">회원가입</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <!-- MID -->
+    <nav class="header-mid flex-between" aria-label="서비스 메뉴">
+
+      <ul class="mid-left flex">
+        <li><a href="#">서점</a></li>
+        <li><a href="#">웹소설</a></li>
+        <li><a href="#">웹툰</a></li>
+      </ul>
+
+      <ul class="mid-right flex">
+        <li><a href="#">캐쉬충전</a></li>
+        <li><a href="#">고객센터</a></li>
+      </ul>
+
+    </nav>
+
+    <!-- BOTTOM -->
+    <nav class="header-bottom flex-between" aria-label="카테고리 메뉴">
+
+      <ul class="nav-main flex">
+        <li><a href="#">전체카테고리</a></li>
+        <li><a href="#">일반도서</a></li>
+        <li><a href="#">로맨스</a></li>
+        <li><a href="#">BL</a></li>
+        <li><a href="#">무협/판타지</a></li>
+        <li><a href="#">만화</a></li>
+      </ul>
+
+      <ul class="nav-sub flex">
+        <li><a href="#">베스트</a></li>
+        <li><a href="#">신간</a></li>
+        <li><a href="#">무료</a></li>
+        <li><a href="#">이벤트</a></li>
+      </ul>
+
+    </nav>
+
+  </div>
+
+</header>
+
+<main>
+
+  <!-- 메인 슬라이더 -->
+  <section id="slider" class="slider-section" aria-label="메인 배너">
+
+    <div class="swiper mySwiper">
+
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
+        <div class="swiper-slide">Slide 5</div>
+        <div class="swiper-slide">Slide 6</div>
+
+      </div>
+
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+
+    </div>
+
+  </section>
+
+  <!-- 메인 콘텐츠 -->
+  <div class="big-section">
+
+    <!-- 퀵 메뉴 -->
+    <section class="sub-section quick-menu-section">
+
+      <h2 class="sr-only">퀵 메뉴</h2>
+
+      <ul class="quick-menu">
+
+        <li class="quick-menu__item">
+          <a class="quick-menu__link placeholder" href="#">Quick 1</a>
+        </li>
+
+        <li class="quick-menu__item">
+          <a class="quick-menu__link placeholder" href="#">Quick 2</a>
+        </li>
+
+        <li class="quick-menu__item">
+          <a class="quick-menu__link placeholder" href="#">Quick 3</a>
+        </li>
+
+        <li class="quick-menu__item">
+          <a class="quick-menu__link placeholder" href="#">Quick 4</a>
+        </li>
+
+      </ul>
+
+    </section>
+
+    <!-- 이벤트 -->
+    <section class="sub-section event-section">
+
+      <header class="section-header">
+        <h2 class="section-title">이벤트</h2>
+      </header>
+
+      <div class="banner-row">
+
+        <a href="#" class="banner placeholder">배너 1</a>
+        <a href="#" class="banner placeholder">배너 2</a>
+        <a href="#" class="banner placeholder">배너 3</a>
+
+      </div>
+
+    </section>
+
+    <!-- 카테고리 -->
+    <section class="sub-section category-section">
+
+      <header class="section-header">
+        <h2 class="section-title">카테고리별 베스트</h2>
+      </header>
+
+      <div class="category-bar">
+
+        <ul class="category-list" role="tablist">
+
+          <li>
+            <button class="category-list__btn" role="tab"
+            aria-selected="true" data-category="문학">
+              문학
+            </button>
+          </li>
+
+          <li>
+            <button class="category-list__btn" role="tab"
+            aria-selected="false" data-category="경제/경영">
+              경제/경영
+            </button>
+          </li>
+
+          <li>
+            <button class="category-list__btn" role="tab"
+            aria-selected="false" data-category="자기계발">
+              자기계발
+            </button>
+          </li>
+
+          <li>
+            <button class="category-list__btn" role="tab"
+            aria-selected="false" data-category="인문">
+              인문
+            </button>
+          </li>
+
+          <li>
+            <button class="category-list__btn" role="tab"
+            aria-selected="false" data-category="사회">
+              사회
+            </button>
+          </li>
+
+          <li>
+            <button class="category-list__btn" role="tab"
+            aria-selected="false" data-category="여행">
+              여행
+            </button>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </section>
+
+    <!-- 차트 -->
+    <section class="sub-section chart-section">
+
+      <header class="section-header">
+        <h2 class="section-title">차트</h2>
+      </header>
+
+      <div class="chart-head">
+
+        <div class="chart-title-box placeholder" id="chartTitleBox">
+          차트 제목
+        </div>
+
+        <p class="sr-only" id="chartTitleA11y" aria-live="polite"></p>
+
+      </div>
+
+      <div class="chart-area">
+
+        <!-- TOP7 -->
+        <div class="chart-col">
+
+          <ol class="top7 placeholder" id="top7List">
+
+            <li class="top7__item"><span>#1</span><span>항목</span></li>
+            <li class="top7__item"><span>#2</span><span>항목</span></li>
+            <li class="top7__item"><span>#3</span><span>항목</span></li>
+            <li class="top7__item"><span>#4</span><span>항목</span></li>
+            <li class="top7__item"><span>#5</span><span>항목</span></li>
+            <li class="top7__item"><span>#6</span><span>항목</span></li>
+            <li class="top7__item"><span>#7</span><span>항목</span></li>
+
+          </ol>
+
+        </div>
+
+        <!-- 1위 -->
+        <div class="chart-col">
+
+          <article class="rank-1 placeholder">
+
+            <div class="rank-1__thumb placeholder">
+              1위 썸네일
+            </div>
+
+            <div class="rank-1__meta">
+
+              <h3 class="rank-1__title">
+                1위 타이틀
+              </h3>
+
+              <p>설명/부가정보</p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- 신간 -->
+    <section class="sub-section new-books-section">
+
+      <header class="section-header flex-between">
+
+        <h2 class="section-title">신간</h2>
+        <a href="#" class="more-link">더보기</a>
+
+      </header>
+
+      <div class="book-grid">
+
+        <a href="#" class="book placeholder">책 1</a>
+        <a href="#" class="book placeholder">책 2</a>
+        <a href="#" class="book placeholder">책 3</a>
+        <a href="#" class="book placeholder">책 4</a>
+        <a href="#" class="book placeholder">책 5</a>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</main>

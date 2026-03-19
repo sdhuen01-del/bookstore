@@ -1,5 +1,3 @@
-@charset "utf-8";
-
 /* =================================
    Root Variables & Base
 ================================= */
@@ -8,7 +6,7 @@
   --container-width: 920px;
 
   /* colors */
-  --header-bg: #fff;
+  --header-bg: #f5c400;
   --top-bg: #ffe0b2;
   --mid-bg: #ffd699;
   --bottom-bg: #ffcc80;
@@ -154,7 +152,6 @@ main {
   padding: 0 10px;
 }
 
-
 .section {
   margin: 24px 0;
   padding: 24px;
@@ -168,44 +165,6 @@ main {
   font-weight: 700;
   margin-bottom: 16px;
 }
-
-/*슬라이더*/
-.swiper {
-      width: 800px;
-      height: 100%;
-    }
-
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #444;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    #new .swiper {
-        width: 100%;
-        height: 300px;
-    }
-
-    #new .swiper-slide {
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-
-    #new .swiper-slide img{
-        width: 100%;
-        height: auto;
-    }
-
 
 /* =================================
    Components (Grid Based)
@@ -238,29 +197,8 @@ main {
   border-radius: var(--radius);
   border: 1px dashed var(--ph-bd);
 }
-/*---배너*/
-
-.banner-row {
-  display: flex;          /* ✅ 가로 배치 */
-  gap: 5px;              /* 배너 사이 간격 */
-}
-
-.banner {
-  display: block;         
-  flex: 1;                
-}
-
-.banner img {
-  width: 100%;
-  height: auto;
-  display: block; 
-}
-
-
-
 
 /* Category Bar */
-
 .category-bar {
   padding: 15px;
   background: #eee;
@@ -284,84 +222,6 @@ main {
   color: #fff;
   border-color: #222;
 }
-
-/* 차트 부분 */
-
-
-.chart-section {
-  text-align: center;  /* 타이틀 중앙 정렬 */
-}
-
-
-.chart-area{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 왼/중/오 3등분 */
-  gap: 16px;                             /* 컬럼 사이 간격 */
-  align-items: start;                     /* 위쪽 정렬 */
-}
-
-
-.chart-header {
-  display: flex;
-  align-items: center;        /* 세로 가운데 정렬 */
-  justify-content: space-between; /* 양끝 배치 */
-  margin-bottom: 12px;
-}
-
-
-.chart-title {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-
-
-/* 각 컬럼 스타일(선택) */
-.chart-col{
-  background: #fff;
-  border-radius: 12px;
-  padding: 12px;
-  border: 1px solid #e5e5e5;
-}
-
-/* 리스트 기본 여백 제거 */
-.top7-list{
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-/* li 내부(순위 + 이름)를 가로로 */
-.top7__item{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 0;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.top7__item:last-child{ border-bottom: 0; }
-
-.rank{
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: #111;
-  color: #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  flex: 0 0 auto;
-}
-
-.name{
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 
 /* =================================
    Footer

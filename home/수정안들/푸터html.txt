@@ -1,0 +1,163 @@
+
+
+<!-- ===================== FOOTER 1 (910x280) ===================== -->
+<footer class="footer footer-1">
+  <div class="footer-inner">
+
+    <!-- footer-top (900x55) : 공지사항 왼쪽 -->
+    <div class="f1-top">
+      <div class="notice">
+        <strong class="notice-title">공지사항</strong>
+        <ul class="notice-list">
+          <li><a href="#">공지사항 예시 1</a></li>
+          <li><a href="#">공지사항 예시 2</a></li>
+        </ul>
+      </div>
+      <!-- 필요하면 오른쪽 영역 추가 가능(비워둠) -->
+      <div class="top-right"></div>
+    </div>
+
+    <!-- footer-mid (810x60) : 광고 중앙 -->
+    <div class="f1-mid">
+      <a class="ad-banner" href="#" aria-label="광고 배너">
+        <img src="images/ad_810x60.jpg" alt="광고 배너(810×60)">
+      </a>
+    </div>
+
+    <!-- footer-bottom : 왼쪽/오른쪽 분할 -->
+    <div class="f1-bottom">
+      <!-- left (180x115) + 서비스 아래 아이콘(60x65) 2개 -->
+      <div class="f1-left">
+        <div class="box-title">서비스</div>
+        <div class="icon-row icon-row-2">
+          <a href="#" class="icon-btn" aria-label="서비스 아이콘 1">
+            <img src="images/icon_60x65_1.png" alt="서비스 아이콘 1 (60×65)">
+          </a>
+          <a href="#" class="icon-btn" aria-label="서비스 아이콘 2">
+            <img src="images/icon_60x65_2.png" alt="서비스 아이콘 2 (60×65)">
+          </a>
+        </div>
+      </div>
+
+      <!-- right (415x115) + 바로가기 아래 아이콘(60x65) 5개 -->
+      <div class="f1-right">
+        <div class="box-title">바로가기</div>
+        <div class="icon-row icon-row-5">
+          <a href="#" class="icon-btn" aria-label="바로가기 1">
+            <img src="images/icon_60x65_a.png" alt="바로가기 아이콘 1 (60×65)">
+          </a>
+          <a href="#" class="icon-btn" aria-label="바로가기 2">
+            <img src="images/icon_60x65_b.png" alt="바로가기 아이콘 2 (60×65)">
+          </a>
+          <a href="#" class="icon-btn" aria-label="바로가기 3">
+            <img src="images/icon_60x65_c.png" alt="바로가기 아이콘 3 (60×65)">
+          </a>
+          <a href="#" class="icon-btn" aria-label="바로가기 4">
+            <img src="images/icon_60x65_d.png" alt="바로가기 아이콘 4 (60×65)">
+          </a>
+          <a href="#" class="icon-btn" aria-label="바로가기 5">
+            <img src="images/icon_60x65_e.png" alt="바로가기 아이콘 5 (60×65)">
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ===================== FOOTER 2 (910x240) ===================== -->
+<footer class="footer footer-2">
+  <div class="footer-inner">
+
+    <!-- top (690x35) : 링크들 -->
+    <nav class="f2-top" aria-label="푸터 메뉴">
+      <a href="#">회사소개</a>
+      <span class="sep">|</span>
+      <a href="#">이용약관</a>
+      <span class="sep">|</span>
+      <a href="#" class="strong">개인정보처리방침</a>
+      <span class="sep">|</span>
+      <a href="#">청소년보호정책</a>
+      <span class="sep">|</span>
+      <a href="#">사업자정보확인</a>
+      <span class="sep">|</span>
+      <a href="#">제휴문의</a>
+      <span class="sep">|</span>
+      <a href="#">작가/출판사 전용메뉴</a>
+    </nav>
+
+    <!-- mid (860x55) : 구글플레이/앱스토어/도서소득공제/이메일 문의 + 30x30 아이콘 5개 -->
+    <div class="f2-mid">
+      <div class="f2-mid-left">
+        <a href="#" class="badge" aria-label="구글플레이">
+          <img src="images/googleplay.png" alt="구글플레이">
+        </a>
+        <a href="#" class="badge" aria-label="앱스토어">
+          <img src="images/appstore.png" alt="앱스토어">
+        </a>
+        <a href="#" class="badge" aria-label="도서소득공제">
+          <img src="images/book_deduction.png" alt="도서소득공제">
+        </a>
+        <a href="mailto:help@example.com" class="email-link">이메일 문의 : help@example.com</a>
+      </div>
+
+      <div class="f2-mid-icons" aria-label="푸터 아이콘 5개">
+        <a href="#" class="mini-icon" aria-label="아이콘 1">
+          <img src="images/mini_30x30_1.png" alt="아이콘 1 (30×30)">
+        </a>
+        <a href="#" class="mini-icon" aria-label="아이콘 2">
+          <img src="images/mini_30x30_2.png" alt="아이콘 2 (30×30)">
+        </a>
+        <a href="#" class="mini-icon" aria-label="아이콘 3">
+          <img src="images/mini_30x30_3.png" alt="아이콘 3 (30×30)">
+        </a>
+        <a href="#" class="mini-icon" aria-label="아이콘 4">
+          <img src="images/mini_30x30_4.png" alt="아이콘 4 (30×30)">
+        </a>
+        <a href="#" class="mini-icon" aria-label="아이콘 5">
+          <img src="images/mini_30x30_5.png" alt="아이콘 5 (30×30)">
+        </a>
+      </div>
+    </div>
+
+    <!-- bottom (725x115) : 회사 소개/인포 -->
+    <div class="f2-bottom">
+      <p class="company">
+        <strong>(주)북큐브네트웍스</strong> | 대표 : 홍길동 | 사업자등록번호 : 000-00-00000<br>
+        통신판매업 신고 : 제2026-서울-0000호 | 주소 : 서울시 ○○구 ○○로 00<br>
+        고객센터 : 0000-0000 (평일 09:00~18:00) | 이메일 : help@example.com<br>
+        © BOOKCUBENETWORKS CO., LTD. All rights reserved.
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ===================== FOOTER 3 (665x40) ===================== -->
+<footer class="footer footer-3">
+  <div class="footer3-inner">
+    <div class="copyright">
+      COPYRIGHT 2016.BOOKCUBENETWORKS CO.LTD.ALL RIGHTS RESERVED.
+    </div>
+
+    <div class="f3-icons" aria-label="푸터3 아이콘 5개">
+      <a href="#" class="mini-icon" aria-label="푸터3 아이콘 1">
+        <img src="images/f3_30x30_1.png" alt="아이콘 1 (30×30)">
+      </a>
+      <a href="#" class="mini-icon" aria-label="푸터3 아이콘 2">
+        <img src="images/f3_30x30_2.png" alt="아이콘 2 (30×30)">
+      </a>
+      <a href="#" class="mini-icon" aria-label="푸터3 아이콘 3">
+        <img src="images/f3_30x30_3.png" alt="아이콘 3 (30×30)">
+      </a>
+      <a href="#" class="mini-icon" aria-label="푸터3 아이콘 4">
+        <img src="images/f3_30x30_4.png" alt="아이콘 4 (30×30)">
+      </a>
+      <a href="#" class="mini-icon" aria-label="푸터3 아이콘 5">
+        <img src="images/f3_30x30_5.png" alt="아이콘 5 (30×30)">
+      </a>
+    </div>
+  </div>
+</footer>

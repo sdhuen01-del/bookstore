@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>북큐브 - 세상의 모든 콘텐츠</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-container">
+    <div class="header-top flex-between">
+      <h1 class="logo">
+        <a href="/" class="flex-center">
+          <img src="images/logo.png" alt="북큐브">
+        </a>
+      </h1>
+
+      <form class="search-box flex" role="search">
+        <label for="main-search" class="sr-only">도서 검색</label>
+        <input id="main-search" type="search" placeholder="검색어를 입력하세요">
+        <button type="submit" class="search-btn">검색</button>
+      </form>
+
+      <nav class="user-menu" aria-label="사용자 메뉴">
+        <ul class="flex gap-md">
+          <li><a href="#">로그인</a></li>
+          <li><a href="#">회원가입</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <nav class="header-mid flex-between" aria-label="서비스 메뉴">
+      <ul class="nav-list mid-left">
+        <li><a href="#" class="is-active">서점</a></li>
+        <li><a href="#">웹소설</a></li>
+        <li><a href="#">웹툰</a></li>
+      </ul>
+      <ul class="nav-list mid-right">
+        <li><a href="#">캐쉬충전</a></li>
+        <li><a href="#">고객센터</a></li>
+      </ul>
+    </nav>
+
+    <nav class="header-bottom flex-between" aria-label="장르 메뉴">
+      <ul class="nav-list nav-main">
+        <li><a href="#">전체카테고리</a></li>
+        <li><a href="#">일반도서</a></li>
+        <li><a href="#">로맨스</a></li>
+        <li><a href="#">BL</a></li>
+        <li><a href="#">무협/판타지</a></li>
+        <li><a href="#">만화</a></li>
+      </ul>
+      <ul class="nav-list nav-sub">
+        <li><a href="#">베스트</a></li>
+        <li><a href="#">신간</a></li>
+        <li><a href="#">무료</a></li>
+        <li><a href="#">이벤트</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="main-slider" class="slider-section" aria-label="주요 소식 배너">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide flex-center">Slide 1</div>
+        <div class="swiper-slide flex-center">Slide 2</div>
+        <div class="swiper-slide flex-center">Slide 3</div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </section>
+
+  <div class="content-container">
+    <section class="section quick-menu-section">
+      <h2 class="sr-only">빠른 이동 메뉴</h2>
+      <ul class="quick-menu">
+        <li class="quick-menu__item"><a href="#" class="flex-center">Quick 1</a></li>
+        <li class="quick-menu__item"><a href="#" class="flex-center">Quick 2</a></li>
+        <li class="quick-menu__item"><a href="#" class="flex-center">Quick 3</a></li>
+        <li class="quick-menu__item"><a href="#" class="flex-center">Quick 4</a></li>
+      </ul>
+    </section>
+
+    <section class="section event-section">
+      <h2 class="section__title">이벤트</h2>
+      <div class="banner-row">
+        <a href="#" class="banner placeholder">이달의 혜택 배너</a>
+        <a href="#" class="banner placeholder">신규 가입 이벤트</a>
+        <a href="#" class="banner placeholder">주말 한정 쿠폰</a>
+      </div>
+    </section>
+
+    <section class="section category-section">
+      <h2 class="section__title">카테고리별 베스트</h2>
+      <div class="category-bar">
+        <ul class="category-list flex" role="tablist">
+          <li><button class="category-list__btn is-active" role="tab" aria-selected="true">문학</button></li>
+          <li><button class="category-list__btn" role="tab" aria-selected="false">경제/경영</button></li>
+          <li><button class="category-list__btn" role="tab" aria-selected="false">자기계발</button></li>
+          <li><button class="category-list__btn" role="tab" aria-selected="false">인문</button></li>
+          <li><button class="category-list__btn" role="tab" aria-selected="false">사회</button></li>
+          <li><button class="category-list__btn" role="tab" aria-selected="false">여행</button></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section chart-section">
+      <h2 class="section__title">실시간 차트</h2>
+      <div class="chart-area">
+        <div class="chart-col">
+          <ol class="top7-list" id="top7List">
+            <li class="top7__item flex"><span class="rank">1</span><span class="name">도서명 1</span></li>
+            <li class="top7__item flex"><span class="rank">2</span><span class="name">도서명 2</span></li>
+            <li class="top7__item flex"><span class="rank">3</span><span class="name">도서명 3</span></li>
+            <li class="top7__item flex"><span class="rank">4</span><span class="name">도서명 4</span></li>
+            <li class="top7__item flex"><span class="rank">5</span><span class="name">도서명 5</span></li>
+          </ol>
+        </div>
+        <div class="chart-col">
+          <article class="rank-featured">
+            <div class="rank-featured__thumb placeholder flex-center">베스트 1위 이미지</div>
+            <div class="rank-featured__meta">
+              <h3 class="rank-featured__title">가장 사랑받는 이주의 책</h3>
+              <p>독자들이 선정한 이번 주 최고의 베스트셀러를 만나보세요.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section new-books-section">
+      <header class="flex-between">
+        <h2 class="section__title">따끈따끈한 신간</h2>
+        <a href="#" class="more-link">전체보기 &gt;</a>
+      </header>
+      <div class="book-grid">
+        <a href="#" class="book-item flex-center">신간 1</a>
+        <a href="#" class="book-item flex-center">신간 2</a>
+        <a href="#" class="book-item flex-center">신간 3</a>
+        <a href="#" class="book-item flex-center">신간 4</a>
+        <a href="#" class="book-item flex-center">신간 5</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-section footer-section--1">
+    <div class="footer-inner">
+      <div class="footer-card notice-box flex">
+        <strong class="notice-title">공지</strong>
+        <ul class="notice-list">
+          <li><a href="#">[안내] 시스템 정기 점검 안내 (3/20)</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-ad flex-center">
+        <a href="#"><img src="images/ad_810x60.jpg" alt="특별 혜택 광고 배너"></a>
+      </div>
+
+      <div class="footer-links-grid flex-between flex-wrap">
+        <div class="footer-group">
+          <h3 class="box-title">주요 서비스</h3>
+          <div class="icon-row flex gap-sm">
+            <a href="#"><img src="images/icon1.png" alt="내 서재"></a>
+            <a href="#"><img src="images/icon2.png" alt="캐시 충전"></a>
+          </div>
+        </div>
+        <div class="footer-group">
+          <h3 class="box-title">빠른 실행</h3>
+          <div class="icon-row flex gap-sm">
+            <a href="#"><img src="images/icon_a.png" alt="앱 다운로드"></a>
+            <a href="#"><img src="images/icon_b.png" alt="고객센터"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-section footer-section--2">
+    <div class="footer-inner">
+      <nav class="footer-nav flex-center flex-wrap gap-md" aria-label="회사 정책 메뉴">
+        <a href="#">회사소개</a>
+        <a href="#">이용약관</a>
+        <a href="#"><strong>개인정보처리방침</strong></a>
+        <a href="#">청소년보호정책</a>
+      </nav>
+      
+      <div class="footer-info flex-between flex-wrap">
+        <address class="company-address">
+          <strong>주식회사 북큐브네트웍스</strong><br>
+          대표이사: 유철종 | 서울 구로구 디지털로 33길 27 삼성IT밸리 514호<br>
+          사업자등록번호: 113-86-24199 | 통신판매업: 제2008-서울구로-0747호
+        </address>
+        <div class="footer-sns flex gap-sm">
+          <a href="#"><img src="images/sns_fb.png" alt="페이스북"></a>
+          <a href="#"><img src="images/sns_ig.png" alt="인스타그램"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-section footer-section--3">
+    <div class="footer-inner flex-between">
+      <p class="copyright">&copy; 2026 BOOKCUBE NETWORKS. ALL RIGHTS RESERVED.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  // 간단한 Swiper 초기화 코드 예시
+  const swiper = new Swiper('.mySwiper', {
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    loop: true,
+  });
+</script>
+</body>
+</html>

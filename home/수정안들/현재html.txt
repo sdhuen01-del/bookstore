@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>북 큐브</title>
+
+     <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-container">
+            <!-- TOP AREA -->
+            <div class="header-top">
+                <h1 class="logo">LOGO</h1>
+                <div class="search-box">검색창</div>
+                <div class="user-menu">
+                    <a href="#">로그인</a>
+                    <a href="#">회원가입</a>
+                </div>
+            </div>
+
+            <!-- MID AREA -->
+            <div class="header-mid">
+                <nav class="mid-left">
+                    <a href="#">서점</a>
+                    <a href="#">웹소설</a>
+                    <a href="#">웹툰</a>
+                </nav>
+
+                <nav class="mid-right">
+                    <a href="#">캐쉬충전</a>
+                    <a href="#">고객센터</a>
+                </nav>
+            </div>
+
+            <!-- BOTTOM AREA -->
+            <div class="header-bottom">
+                <div class="line-top"></div>
+                <div class="bottom-row">
+                    <nav class="nav-main">
+                        <a href="#">전체카테고리</a>
+                        <a href="#">일반도서</a>
+                        <a href="#">로맨스</a>
+                        <a href="#">BL</a>
+                        <a href="#">무협/판타지</a>
+                        <a href="#">만화</a>
+                    </nav>
+                        
+                    <nav class="nav-sub">
+                        <a href="#">베스트</a>
+                        <a href="#">신간</a>
+                        <a href="#">무료</a>
+                        <a href="#">이벤트</a>
+                    </nav>
+                </div>
+                    
+                <div class="line-bottom"></div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+    <main>
+        <div id="slider">
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">Slide 1</div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+                    <div class="swiper-slide">Slide 4</div>
+                    <div class="swiper-slide">Slide 5</div>
+                    <div class="swiper-slide">Slide 6</div>
+                </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+
+
+        <main class="big-section" id="bigSection">
+
+        <!-- 1. 섹션: 퀵 메뉴 -->
+        <section class="sub-section" id="sec1">
+            <ul class="quick-menu" aria-label="퀵 메뉴">
+                <li class="ph quick-menu__item"><a class="quick-menu__link" href="#">Quick 1</a></li>
+                <li class="ph quick-menu__item"><a class="quick-menu__link" href="#">Quick 2</a></li>
+                <li class="ph quick-menu__item"><a class="quick-menu__link" href="#">Quick 3</a></li>
+                <li class="ph quick-menu__item"><a class="quick-menu__link" href="#">Quick 4</a></li>
+            </ul>
+        </section>
+
+        <!-- 2. 섹션: 이벤트 + 배너 3개 -->
+        <section class="sub-section" id="sec2">
+            <h2 class="section-title" style="font-size:20px; margin-top:0;">이벤트</h2>
+            <div class="banner-row" aria-label="이벤트 배너 3개">
+            <div class="ph banner">배너 1 (295×130)</div>
+            <div class="ph banner">배너 2 (295×130)</div>
+            <div class="ph banner">배너 3 (295×130)</div>
+        </div>
+        </section>
+
+        <!-- 3. 섹션: 카테고리 바 -->
+        <section class="sub-section" id="sec3">
+            <div class="category-bar-wrap">
+            <div class="category-bar" role="region" aria-label="카테고리 회색 박스">
+            <div class="ph category-bar__label">카테고리별 베스트</div>
+
+                <ul class="category-list" aria-label="카테고리 목록">
+                    <li><button class="category-list__btn" data-category="문학" type="button">문학</button></li>
+                    <li><button class="category-list__btn" data-category="경제/경영" type="button">경제/경영</button></li>
+                    <li><button class="category-list__btn" data-category="자기계발" type="button">자기계발</button></li>
+                    <li><button class="category-list__btn" data-category="인문" type="button">인문</button></li>
+                    <li><button class="category-list__btn" data-category="사회" type="button">사회</button></li>
+                    <li><button class="category-list__btn" data-category="여행" type="button">여행</button></li>
+                </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 섹션: 차트 -->
+        <section class="sub-section" id="sec4">
+        <h2 class="section-title">4. 섹션 (차트)</h2>
+
+            <div class="chart-head">
+                <div class="ph chart-title-box" id="chartTitleBox">차트 제목<br>(135×70)</div>
+                <p class="sr-only" id="chartTitleA11y" aria-live="polite"></p>
+                <div style="color:var(--muted); font-size:13px;">               
+                </div>
+            </div>
+
+        <!-- “새로줄 3개의 리스트”를 3열 레이아웃으로 표현 -->
+        <div class="chart-area" aria-label="차트 컨텐츠">
+
+        <!-- 열 1: TOP7 -->
+        <div class="chart-col" aria-label="TOP7 컬럼">
+          <ul class="ph top7" id="top7List" aria-label="TOP7 (285×340)">
+            <li class="top7__item"><span>#1</span><span>항목</span></li>
+            <li class="top7__item"><span>#2</span><span>항목</span></li>
+            <li class="top7__item"><span>#3</span><span>항목</span></li>
+            <li class="top7__item"><span>#4</span><span>항목</span></li>
+            <li class="top7__item"><span>#5</span><span>항목</span></li>
+            <li class="top7__item"><span>#6</span><span>항목</span></li>
+            <li class="top7__item"><span>#7</span><span>항목</span></li>
+          </ul>
+        </div>
+
+        <!-- 열 2: 1위(큰 카드) -->
+        <div class="chart-col" aria-label="1위 컬럼">
+          <article class="ph rank-1" id="rank1Card" aria-label="1위 카드 (285×340)">
+            <div class="ph rank-1__thumb">1위 썸네일</div>
+            <div class="rank-1__meta">
+              <strong>1위 타이틀</strong>
+              <span>설명/부가정보</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- 열 3: 2~5위(작은 카드들) -->
+        <div class="chart-col" aria-label="2~5위 컬럼">
+          <div class="rank-list" id="rankList">
+            <article class="ph rank-item" aria-label="2위 (285×125)">
+              <div class="ph rank-item__thumb">2위</div>
+              <div class="rank-item__text">
+                <strong>2위 타이틀</strong>
+                <span>설명</span>
+              </div>
+            </article>
+
+            <article class="ph rank-item" aria-label="3위 (285×125)">
+              <div class="ph rank-item__thumb">3위</div>
+              <div class="rank-item__text">
+                <strong>3위 타이틀</strong>
+                <span>설명</span>
+              </div>
+            </article>
+
+            <article class="ph rank-item" aria-label="4위 (285×125)">
+              <div class="ph rank-item__thumb">4위</div>
+              <div class="rank-item__text">
+                <strong>4위 타이틀</strong>
+                <span>설명</span>
+              </div>
+            </article>
+
+            <article class="ph rank-item" aria-label="5위 (285×125)">
+              <div class="ph rank-item__thumb">5위</div>
+              <div class="rank-item__text">
+                <strong>5위 타이틀</strong>
+                <span>설명</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. 섹션: 신간 + 책 5권씩 2배열 -->
+    <section class="sub-section" id="sec5">
+        <h2 class="section-title">신간</h2>
+        <div class="ph small-title">더보기</div>
+        <div class="book-grid-2rows" aria-label="신간 도서 (5권씩 2배열)">
+        <!-- 10개(2행×5열) -->
+        <div class="ph book">책 1 (150×210)</div>
+        <div class="ph book">책 2</div>
+        <div class="ph book">책 3</div>
+        <div class="ph book">책 4</div>
+        <div class="ph book">책 5</div>
+
+        <div class="ph book">책 6</div>
+        <div class="ph book">책 7</div>
+        <div class="ph book">책 8</div>
+        <div class="ph book">책 9</div>
+        <div class="ph book">책 10</div>
+        </div>
+    </section>
+
+    <!-- 6. 섹션: 2번 섹션과 동일 -->
+    <section class="sub-section" id="sec6">
+      
+      <h2 class="section-title" style="font-size:20px; margin-top:0;">이벤트</h2>
+      <div class="banner-row" aria-label="이벤트 배너 3개(동일)">
+        <div class="ph banner">
+            <img src=".img.event4(b_1).jpg" alt="이벤트 배너 1">
+        </div>
+        <div class="ph banner">배너 2 (295×130)</div>
+        <div class="ph banner">배너 3 (295×130)</div>
+      </div>
+    </section>
+
+    <!-- 7. 섹션: title(345x30) + 책 이미지(150x215) 5개 -->
+    <section class="sub-section" id="sec7">
+      <h2 class="section-title">피터 스와슨 최신작 [킬 유어 달링] 특집</h2>
+
+      <div class="book-row" aria-label="도서 5개 (150×215)">
+        <div class="ph book book--215">책 1</div>
+        <div class="ph book book--215">책 2</div>
+        <div class="ph book book--215">책 3</div>
+        <div class="ph book book--215">책 4</div>
+        <div class="ph book book--215">책 5</div>
+      </div>
+    </section>
+
+    <!-- 8. 섹션: 타이틀(45x30) + 책 이미지(150x210) 5개 -->
+    <section class="sub-section" id="sec8">
+      <h2 class="section-title">무료</h2>
+
+      <div class="ph tiny-title">더보기</div>
+
+      <div class="book-row" aria-label="도서 5개 (150×210)">
+        <div class="ph book">책 1</div>
+        <div class="ph book">책 2</div>
+        <div class="ph book">책 3</div>
+        <div class="ph book">책 4</div>
+        <div class="ph book">책 5</div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // 3섹션 카테고리 hover -> 4섹션 차트 제목 변경
+    const buttons = document.querySelectorAll(".category-list__btn");
+    const chartTitleBox = document.getElementById("chartTitleBox");
+    const chartTitleA11y = document.getElementById("chartTitleA11y");
+
+    const setActive = (btn) => {
+      buttons.forEach(b => b.classList.remove("is-active"));
+      if (btn) btn.classList.add("is-active");
+    };
+
+    const updateChartTitle = (category) => {
+      const text = `차트 제목\\n(${category})`;
+      chartTitleBox.textContent = text;
+      chartTitleA11y.textContent = `차트 제목이 ${category}로 변경되었습니다.`;
+    };
+
+    buttons.forEach(btn => {
+      btn.addEventListener("mouseenter", () => {
+        setActive(btn);
+        updateChartTitle(btn.dataset.category);
+      });
+
+      // 키보드 접근성(탭으로 이동 후 포커스 시에도 변경)
+      btn.addEventListener("focus", () => {
+        setActive(btn);
+        updateChartTitle(btn.dataset.category);
+      });
+    });
+
+    // 기본값(첫 카테고리)
+    if (buttons[0]) {
+      setActive(buttons[0]);
+      updateChartTitle(buttons[0].dataset.category);
+    }
+  </script>
+    </main>
+        <div id="slider"></div>
+
+
+
+        
+<!-- ===================== FOOTER 1 (910x280) ===================== -->
+<footer class="footer footer-1">
+    <div class="footer-inner">
+        <!-- footer-top (900x55) : 공지사항 왼쪽 -->
+        <div class="f1-top">
+            <div class="notice">
+                <strong class="notice-title">공지사항</strong>
+                <ul class="notice-list">
+                    <li><a href="#">공지사항 예시 1</a></li>                
+                </ul>
+            </div>
+            <div class="top-right"></div>
+        </div>
+
+        <!-- footer-mid (810x60) : 광고 중앙 -->
+        <div class="f1-mid">
+            <a class="ad-banner" href="#" aria-label="광고 배너">
+                <img src="images/ad_810x60.jpg" alt="광고 배너(810×60)">
+            </a>
+        </div>
+
+        <!-- footer-bottom : 왼쪽/오른쪽 분할 -->
+         
+        <div class="f1-bottom">
+            <!-- left (180x115) + 서비스 아래 아이콘(60x65) 2개 -->
+            <div class="f1-left">
+                <div class="box-title">서비스</div>
+                <div class="icon-row icon-row-2">
+                    <a href="#" class="icon-btn" aria-label="서비스 아이콘 1">
+                        <img src="images/icon_60x65_1.png" alt="서비스 아이콘 1 (60×65)">
+                    </a>
+                    <a href="#" class="icon-btn" aria-label="서비스 아이콘 2">
+                        <img src="images/icon_60x65_2.png" alt="서비스 아이콘 2 (60×65)">
+                    </a>
+                </div>
+            </div>
+
+            <!-- right (415x115) + 바로가기 아래 아이콘(60x65) 5개 -->
+            <div class="f1-right">
+                <div class="box-title">바로가기</div>
+                <div class="icon-row icon-row-5">
+                    <a href="#" class="icon-btn" aria-label="바로가기 1">
+                        <img src="images/icon_60x65_a.png" alt="바로가기 아이콘 1 (60×65)"></a>
+                    <a href="#" class="icon-btn" aria-label="바로가기 2">
+                        <img src="images/icon_60x65_b.png" alt="바로가기 아이콘 2 (60×65)"></a>
+                    <a href="#" class="icon-btn" aria-label="바로가기 3">
+                        <img src="images/icon_60x65_c.png" alt="바로가기 아이콘 3 (60×65)"></a>
+                    <a href="#" class="icon-btn" aria-label="바로가기 4">
+                        <img src="images/icon_60x65_d.png" alt="바로가기 아이콘 4 (60×65)"></a>
+                    <a href="#" class="icon-btn" aria-label="바로가기 5">
+                        <img src="images/icon_60x65_e.png" alt="바로가기 아이콘 5 (60×65)"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- ===================== FOOTER 2 (910x240) ===================== -->
+<footer class="footer footer-2">
+  <div class="footer-inner">
+
+    <!-- top (690x35) : 링크들 -->
+    <nav class="f2-top" aria-label="푸터 메뉴">
+      <a href="#">회사소개</a>
+      <span class="sep">|</span>
+      <a href="#">이용약관</a>
+      <span class="sep">|</span>
+      <a href="#" class="strong">개인정보처리방침</a>
+      <span class="sep">|</span>
+      <a href="#">청소년보호정책</a>
+      <span class="sep">|</span>
+      <a href="#">사업자정보확인</a>
+      <span class="sep">|</span>
+      <a href="#">제휴문의</a>
+      <span class="sep">|</span>
+      <a href="#">작가/출판사 전용메뉴</a>
+    </nav>
+
+    <!-- mid (860x55) : 구글플레이/앱스토어/도서소득공제/이메일 문의 + 30x30 아이콘 5개 -->
+    <div class="f2-mid">
+      <div class="f2-mid-left">
+        <a href="#" class="badge" aria-label="구글플레이">
+          <img src="images/googleplay.png" alt="구글플레이">
+        </a>
+        <a href="#" class="badge" aria-label="앱스토어">
+          <img src="images/appstore.png" alt="앱스토어">
+        </a>
+        <a href="#" class="badge" aria-label="도서소득공제">
+          <img src="images/book_deduction.png" alt="도서소득공제">
+        </a>
+        <a href="mailto:help@example.com" class="email-link">이메일 문의 : help@example.com</a>
+      </div>
+
+      <div class="f2-mid-icons" aria-label="푸터 아이콘 5개">
+        <a href="#" class="mini-icon" aria-label="아이콘 1">
+          <img src="images/mini_30x30_1.png" alt="아이콘 1 (30×30)">
+        </a>
+        <a href="#" class="mini-icon" aria-label="아이콘 2">
+          <img src="images/mini_30x30_2.png" alt="아이콘 2 (30×30)">
+        </a>
+        <a href="#" class="mini-icon" aria-label="아이콘 3">
+          <img src="images/mini_30x30_3.png" alt="아이콘 3 (30×30)">
+        </a>
+        <a href="#" class="mini-icon" aria-label="아이콘 4">
+          <img src="images/mini_30x30_4.png" alt="아이콘 4 (30×30)">
+        </a>
+        <a href="#" class="mini-icon" aria-label="아이콘 5">
+          <img src="images/mini_30x30_5.png" alt="아이콘 5 (30×30)">
+        </a>
+      </div>
+    </div>
+
+    <!-- bottom (725x115) : 회사 소개/인포 -->
+    <div class="f2-bottom">
+      <p class="company">
+        <strong>(주)북큐브네트웍스</strong> | 대표 : 홍길동 | 사업자등록번호 : 000-00-00000<br>
+        통신판매업 신고 : 제2026-서울-0000호 | 주소 : 서울시 ○○구 ○○로 00<br>
+        고객센터 : 0000-0000 (평일 09:00~18:00) | 이메일 : help@example.com<br>
+        © BOOKCUBENETWORKS CO., LTD. All rights reserved.
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ===================== FOOTER 3 (665x40) ===================== -->
+<footer class="footer footer-3">
+  <div class="footer3-inner">
+    <div class="copyright">
+      COPYRIGHT 2016.BOOKCUBENETWORKS CO.LTD.ALL RIGHTS RESERVED.
+    </div>
+
+    <div class="f3-icons" aria-label="푸터3 아이콘 5개">
+      <a href="#" class="mini-icon" aria-label="푸터3 아이콘 1">
+        <img src="images/f3_30x30_1.png" alt="아이콘 1 (30×30)">
+      </a>
+      <a href="#" class="mini-icon" aria-label="푸터3 아이콘 2">
+        <img src="images/f3_30x30_2.png" alt="아이콘 2 (30×30)">
+      </a>
+      <a href="#" class="mini-icon" aria-label="푸터3 아이콘 3">
+        <img src="images/f3_30x30_3.png" alt="아이콘 3 (30×30)">
+      </a>
+      <a href="#" class="mini-icon" aria-label="푸터3 아이콘 4">
+        <img src="images/f3_30x30_4.png" alt="아이콘 4 (30×30)">
+      </a>
+      <a href="#" class="mini-icon" aria-label="푸터3 아이콘 5">
+        <img src="images/f3_30x30_5.png" alt="아이콘 5 (30×30)">
+      </a>
+    </div>
+  </div>
+</footer>
+    </footer>
+    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+  
+    <!-- Initialize Swiper -->
+  
+    <script>
+    var swiper = new Swiper(".mySwiper", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+</body>
+</html>

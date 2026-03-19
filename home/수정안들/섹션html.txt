@@ -1,0 +1,565 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>페이지 섹션 구조</title>
+
+  <style>
+    :root{
+      --page-w: 910px;
+      --page-h: 3445px;
+
+      --gap-8: 8px;
+      --gap-10: 10px;
+      --gap-12: 12px;
+      --gap-16: 16px;
+      --gap-20: 20px;
+      --gap-24: 24px;
+      --line: #e5e5e5;
+
+      --ph-bg: #f3f3f3;
+      --ph-bd: #d8d8d8;
+      --text: #222;
+      --muted: #666;
+    }
+
+    * { box-sizing: border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", Arial, sans-serif;
+      color: var(--text);
+      background:#fafafa;
+      padding: 24px 0;
+    }
+
+    /* 큰 섹션(컨테이너) */
+    .big-section{
+      width: var(--page-w);
+      min-height: var(--page-h);
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 18px;
+    }
+
+    .sub-section{
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .sub-section:last-child{ border-bottom: 0; }
+
+    .section-title{
+      margin: 0 0 12px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .sr-only{
+      position:absolute !important;
+      width:1px; height:1px;
+      padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0);
+      border:0;
+    }
+
+    /* 공통 placeholder 박스 */
+    .ph{
+      background: var(--ph-bg);
+      border: 1px dashed var(--ph-bd);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--muted);
+      font-size: 12px;
+      user-select:none;
+    }
+
+    /* ===== 1. 섹션: 퀵 메뉴(ul 4개 / li 4개: 225x100) ===== */
+    .quick-menu{
+      display:flex;
+      gap: var(--gap-10);
+      padding: 0;
+      margin: 0;
+      list-style:none;
+      flex-wrap: wrap;
+    }
+    .quick-menu__item{
+      width: 225px;
+      height: 100px;
+      border-radius: 10px;
+    }
+    .quick-menu__link{
+      width:100%; height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      color: inherit;
+    }
+
+    /* ===== 2. 섹션: 이벤트(h2) + 배너 3개(295x130) ===== */
+    .banner-row{
+      display:flex;
+      gap: var(--gap-12);
+      flex-wrap: wrap;
+    }
+    .banner{
+      width: 295px;
+      height: 130px;
+      border-radius: 10px;
+      overflow:hidden;
+    }
+
+    /* ===== 3. 섹션: 카테고리 회색 박스(925x75) ===== */
+    .category-bar-wrap{
+      /* 큰 섹션 폭(910)보다 925가 커서 가운데 정렬 시 약간 양쪽으로 7.5px씩 삐져나오게 처리 */
+      width: 925px;
+      margin-left: calc((var(--page-w) - 925px) / 2);
+    }
+    .category-bar{
+      width: 925px;
+      height: 75px;
+      background:#eee;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 0 14px;
+      gap: var(--gap-12);
+    }
+    .category-bar__label{
+      width: 195px;
+      height: 45px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+    .category-list{
+      width: 615px;
+      height: 40px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: var(--gap-8);
+      padding:0;
+      margin:0;
+      list-style:none;
+    }
+    .category-list__btn{
+      border: 1px solid #ccc;
+      background:#fff;
+      height: 40px;
+      padding: 0 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      cursor:pointer;
+      transition: background .15s, border-color .15s;
+      white-space: nowrap;
+    }
+    .category-list__btn:hover,
+    .category-list__btn.is-active{
+      background:#222;
+      color:#fff;
+      border-color:#222;
+    }
+
+    /* ===== 4. 섹션: 차트 제목(135x70) + 리스트들 ===== */
+    .chart-head{
+      display:flex;
+      align-items:center;
+      gap: var(--gap-16);
+      margin-bottom: 12px;
+    }
+    .chart-title-box{
+      width: 135px;
+      height: 70px;
+      border-radius: 10px;
+      font-weight: 800;
+      text-align:center;
+      padding: 8px;
+      line-height: 1.2;
+    }
+
+    .chart-area{
+      display:grid;
+      grid-template-columns: 285px 285px 285px;
+      gap: 12px;
+      align-items:start;
+    }
+
+    /* “새로줄 3개의 리스트”를 3열로 표현 */
+    .chart-col{
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+
+    /* top7(285x340) */
+    .top7{
+      width: 285px;
+      height: 340px;
+      border-radius: 12px;
+      padding: 12px;
+      margin:0;
+      list-style:none;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      gap: 8px;
+    }
+    .top7__item{
+      display:flex;
+      justify-content:space-between;
+      gap: 8px;
+      font-size: 13px;
+      background:#fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 8px 10px;
+    }
+
+    /* 1위칸(285x340) */
+    .rank-1{
+      width: 285px;
+      height: 340px;
+      border-radius: 12px;
+      padding: 12px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .rank-1__thumb{
+      height: 220px;
+      border-radius: 10px;
+    }
+    .rank-1__meta{
+      display:flex;
+      flex-direction:column;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    /* 2위~5위(285x125) 동일 */
+    .rank-list{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .rank-item{
+      width: 285px;
+      height: 125px;
+      border-radius: 12px;
+      padding: 10px;
+      display:grid;
+      grid-template-columns: 80px 1fr;
+      gap: 10px;
+      align-items:center;
+    }
+    .rank-item__thumb{
+      width: 80px;
+      height: 105px;
+      border-radius: 10px;
+    }
+    .rank-item__text{
+      display:flex;
+      flex-direction:column;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    /* ===== 5. 섹션: 신간(40x30) + 책(150x210) 5권씩 2배열 ===== */
+    .small-title{
+      width: 40px;
+      height: 30px;
+      border-radius: 8px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .book-grid-2rows{
+      display:grid;
+      grid-template-columns: repeat(5, 150px);
+      gap: 12px;
+      justify-content: space-between;
+    }
+    .book{
+      width: 150px;
+      height: 210px;
+      border-radius: 10px;
+      overflow:hidden;
+    }
+
+    /* ===== 6. 섹션: 2번 섹션과 동일 ===== */
+    /* (2번의 banner-row/banner 그대로 재사용) */
+
+    /* ===== 7. 섹션: title(345x30) + 책 이미지(150x215) 5개 ===== */
+    .wide-title{
+      width: 345px;
+      height: 30px;
+      border-radius: 8px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .book-row{
+      display:flex;
+      gap: 12px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .book--215{
+      width: 150px;
+      height: 215px;
+    }
+
+    /* ===== 8. 섹션: 타이틀(45x30) + 책 이미지(150x210) 5개 ===== */
+    .tiny-title{
+      width: 45px;
+      height: 30px;
+      border-radius: 8px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    /* 반응형(작은 화면) */
+    @media (max-width: 980px){
+      body{ padding: 12px; }
+      .big-section{ width: 100%; }
+      .category-bar-wrap{ width: 100%; margin-left: 0; }
+      .category-bar{ width: 100%; }
+      .chart-area{ grid-template-columns: 1fr; }
+      .chart-col{ flex-direction: column; }
+      .book-grid-2rows{ grid-template-columns: repeat(2, 150px); justify-content:start; }
+      .book-row{ justify-content:start; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="big-section" id="bigSection">
+
+    <!-- 1. 섹션: 퀵 메뉴 -->
+    <section class="sub-section" id="sec1">
+      <h2 class="section-title">1. 섹션 (퀵 메뉴)</h2>
+      <ul class="quick-menu" aria-label="퀵 메뉴">
+        <li class="ph quick-menu__item"><a class="quick-menu__link" href="#">Quick 1</a></li>
+        <li class="ph quick-menu__item"><a class="quick-menu__link" href="#">Quick 2</a></li>
+        <li class="ph quick-menu__item"><a class="quick-menu__link" href="#">Quick 3</a></li>
+        <li class="ph quick-menu__item"><a class="quick-menu__link" href="#">Quick 4</a></li>
+      </ul>
+    </section>
+
+    <!-- 2. 섹션: 이벤트 + 배너 3개 -->
+    <section class="sub-section" id="sec2">
+      <h2 class="section-title">2. 섹션</h2>
+
+      <h2 class="section-title" style="font-size:20px; margin-top:0;">이벤트</h2>
+      <div class="banner-row" aria-label="이벤트 배너 3개">
+        <div class="ph banner">배너 1 (295×130)</div>
+        <div class="ph banner">배너 2 (295×130)</div>
+        <div class="ph banner">배너 3 (295×130)</div>
+      </div>
+    </section>
+
+    <!-- 3. 섹션: 카테고리 바 -->
+    <section class="sub-section" id="sec3">
+      <h2 class="section-title">3. 섹션</h2>
+
+      <div class="category-bar-wrap">
+        <div class="category-bar" role="region" aria-label="카테고리 회색 박스">
+          <div class="ph category-bar__label">카테고리별 베스트<br>(195×45)</div>
+
+          <ul class="category-list" aria-label="카테고리 목록">
+            <li><button class="category-list__btn" data-category="문학" type="button">문학</button></li>
+            <li><button class="category-list__btn" data-category="경제/경영" type="button">경제/경영</button></li>
+            <li><button class="category-list__btn" data-category="자기계발" type="button">자기계발</button></li>
+            <li><button class="category-list__btn" data-category="인문" type="button">인문</button></li>
+            <li><button class="category-list__btn" data-category="사회" type="button">사회</button></li>
+            <li><button class="category-list__btn" data-category="여행" type="button">여행</button></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 섹션: 차트 -->
+    <section class="sub-section" id="sec4">
+      <h2 class="section-title">4. 섹션 (차트)</h2>
+
+      <div class="chart-head">
+        <div class="ph chart-title-box" id="chartTitleBox">차트 제목<br>(135×70)</div>
+        <p class="sr-only" id="chartTitleA11y" aria-live="polite"></p>
+        <div style="color:var(--muted); font-size:13px;">
+          3섹션 카테고리에 마우스를 올리면 제목이 같이 변경됩니다.
+        </div>
+      </div>
+
+      <!-- “새로줄 3개의 리스트”를 3열 레이아웃으로 표현 -->
+      <div class="chart-area" aria-label="차트 컨텐츠">
+
+        <!-- 열 1: TOP7 -->
+        <div class="chart-col" aria-label="TOP7 컬럼">
+          <ul class="ph top7" id="top7List" aria-label="TOP7 (285×340)">
+            <li class="top7__item"><span>#1</span><span>항목</span></li>
+            <li class="top7__item"><span>#2</span><span>항목</span></li>
+            <li class="top7__item"><span>#3</span><span>항목</span></li>
+            <li class="top7__item"><span>#4</span><span>항목</span></li>
+            <li class="top7__item"><span>#5</span><span>항목</span></li>
+            <li class="top7__item"><span>#6</span><span>항목</span></li>
+            <li class="top7__item"><span>#7</span><span>항목</span></li>
+          </ul>
+        </div>
+
+        <!-- 열 2: 1위(큰 카드) -->
+        <div class="chart-col" aria-label="1위 컬럼">
+          <article class="ph rank-1" id="rank1Card" aria-label="1위 카드 (285×340)">
+            <div class="ph rank-1__thumb">1위 썸네일</div>
+            <div class="rank-1__meta">
+              <strong>1위 타이틀</strong>
+              <span>설명/부가정보</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- 열 3: 2~5위(작은 카드들) -->
+        <div class="chart-col" aria-label="2~5위 컬럼">
+          <div class="rank-list" id="rankList">
+            <article class="ph rank-item" aria-label="2위 (285×125)">
+              <div class="ph rank-item__thumb">2위</div>
+              <div class="rank-item__text">
+                <strong>2위 타이틀</strong>
+                <span>설명</span>
+              </div>
+            </article>
+
+            <article class="ph rank-item" aria-label="3위 (285×125)">
+              <div class="ph rank-item__thumb">3위</div>
+              <div class="rank-item__text">
+                <strong>3위 타이틀</strong>
+                <span>설명</span>
+              </div>
+            </article>
+
+            <article class="ph rank-item" aria-label="4위 (285×125)">
+              <div class="ph rank-item__thumb">4위</div>
+              <div class="rank-item__text">
+                <strong>4위 타이틀</strong>
+                <span>설명</span>
+              </div>
+            </article>
+
+            <article class="ph rank-item" aria-label="5위 (285×125)">
+              <div class="ph rank-item__thumb">5위</div>
+              <div class="rank-item__text">
+                <strong>5위 타이틀</strong>
+                <span>설명</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. 섹션: 신간 + 책 5권씩 2배열 -->
+    <section class="sub-section" id="sec5">
+      <h2 class="section-title">5. 섹션</h2>
+
+      <div class="ph small-title">신간</div>
+
+      <div class="book-grid-2rows" aria-label="신간 도서 (5권씩 2배열)">
+        <!-- 10개(2행×5열) -->
+        <div class="ph book">책 1 (150×210)</div>
+        <div class="ph book">책 2</div>
+        <div class="ph book">책 3</div>
+        <div class="ph book">책 4</div>
+        <div class="ph book">책 5</div>
+
+        <div class="ph book">책 6</div>
+        <div class="ph book">책 7</div>
+        <div class="ph book">책 8</div>
+        <div class="ph book">책 9</div>
+        <div class="ph book">책 10</div>
+      </div>
+    </section>
+
+    <!-- 6. 섹션: 2번 섹션과 동일 -->
+    <section class="sub-section" id="sec6">
+      <h2 class="section-title">6. 섹션 (2번과 동일)</h2>
+
+      <h2 class="section-title" style="font-size:20px; margin-top:0;">이벤트</h2>
+      <div class="banner-row" aria-label="이벤트 배너 3개(동일)">
+        <div class="ph banner">배너 1 (295×130)</div>
+        <div class="ph banner">배너 2 (295×130)</div>
+        <div class="ph banner">배너 3 (295×130)</div>
+      </div>
+    </section>
+
+    <!-- 7. 섹션: title(345x30) + 책 이미지(150x215) 5개 -->
+    <section class="sub-section" id="sec7">
+      <h2 class="section-title">7. 섹션</h2>
+
+      <div class="ph wide-title">title (345×30)</div>
+
+      <div class="book-row" aria-label="도서 5개 (150×215)">
+        <div class="ph book book--215">책 1</div>
+        <div class="ph book book--215">책 2</div>
+        <div class="ph book book--215">책 3</div>
+        <div class="ph book book--215">책 4</div>
+        <div class="ph book book--215">책 5</div>
+      </div>
+    </section>
+
+    <!-- 8. 섹션: 타이틀(45x30) + 책 이미지(150x210) 5개 -->
+    <section class="sub-section" id="sec8">
+      <h2 class="section-title">8. 섹션</h2>
+
+      <div class="ph tiny-title">타이틀</div>
+
+      <div class="book-row" aria-label="도서 5개 (150×210)">
+        <div class="ph book">책 1</div>
+        <div class="ph book">책 2</div>
+        <div class="ph book">책 3</div>
+        <div class="ph book">책 4</div>
+        <div class="ph book">책 5</div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // 3섹션 카테고리 hover -> 4섹션 차트 제목 변경
+    const buttons = document.querySelectorAll(".category-list__btn");
+    const chartTitleBox = document.getElementById("chartTitleBox");
+    const chartTitleA11y = document.getElementById("chartTitleA11y");
+
+    const setActive = (btn) => {
+      buttons.forEach(b => b.classList.remove("is-active"));
+      if (btn) btn.classList.add("is-active");
+    };
+
+    const updateChartTitle = (category) => {
+      const text = `차트 제목\\n(${category})`;
+      chartTitleBox.textContent = text;
+      chartTitleA11y.textContent = `차트 제목이 ${category}로 변경되었습니다.`;
+    };
+
+    buttons.forEach(btn => {
+      btn.addEventListener("mouseenter", () => {
+        setActive(btn);
+        updateChartTitle(btn.dataset.category);
+      });
+
+      // 키보드 접근성(탭으로 이동 후 포커스 시에도 변경)
+      btn.addEventListener("focus", () => {
+        setActive(btn);
+        updateChartTitle(btn.dataset.category);
+      });
+    });
+
+    // 기본값(첫 카테고리)
+    if (buttons[0]) {
+      setActive(buttons[0]);
+      updateChartTitle(buttons[0].dataset.category);
+    }
+  </script>
+</body>
+</html>

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/main.css">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>북큐브 - 세상의 모든 콘텐츠</title>
-  <!-- Link Swiper's CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/main.css">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -49,7 +49,7 @@
 
     <nav class="header-bottom flex-between" aria-label="장르 메뉴">
       <ul class="nav-list nav-main">
-        <a href="#"><img src="./img/all-category.png" alt="전체카테고리"></a>
+        <li><a href="#">전체카테고리</a></li>
         <li><a href="#">일반도서</a></li>
         <li><a href="#">로맨스</a></li>
         <li><a href="#">BL</a></li>
@@ -67,55 +67,36 @@
 </header>
 
 <main>
-  <section id="new" class="slider-section" aria-label="주요 소식 배너">
-     <div class="swiper newSwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">Slide 1</div>
-      <div class="swiper-slide">Slide 2</div>
-      <div class="swiper-slide">Slide 3</div>
-      <div class="swiper-slide">Slide 4</div>
-      <div class="swiper-slide">Slide 5</div>
-      <div class="swiper-slide">Slide 6</div>
-      <div class="swiper-slide">Slide 7</div>
-      <div class="swiper-slide">Slide 8</div>
-      <div class="swiper-slide">Slide 9</div>
-      <div class="swiper-slide">Slide 10</div>
-      <div class="swiper-slide">Slide 11</div>
-      <div class="swiper-slide">Slide 12</div>
-      <div class="swiper-slide">Slide 13</div>
-      <div class="swiper-slide">Slide 14</div>
-      <div class="swiper-slide">Slide 15</div>
-      <div class="swiper-slide">Slide 16</div>
-      <div class="swiper-slide">Slide 17</div>
+  <section id="main-slider" class="slider-section" aria-label="주요 소식 배너">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide flex-center">Slide 1</div>
+        <div class="swiper-slide flex-center">Slide 2</div>
+        <div class="swiper-slide flex-center">Slide 3</div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
     </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>    
-    
-  </div>
   </section>
 
   <div class="content-container">
     <section class="section quick-menu-section">
       <ul class="quick-menu">
-        <li class="quick-menu__item"><a href="#" class="flex-center">
-          <img src="./img/icon/q1.png" alt="이벤트 배너">국내 문학</a></li>
-        <li class="quick-menu__item"><a href="#" class="flex-center">
-          <img src="./img/icon/q2.png" alt="이벤트 배너">해외 문학</a></li>
-        <li class="quick-menu__item"><a href="#" class="flex-center">
-          <img src="./img/icon/q3.png" alt="이벤트 배너">오디오북</a></li>
-        <li class="quick-menu__item"><a href="#" class="flex-center">
-          <img src="./img/icon/q4.png" alt="이벤트 배너">이벤트</a></li>
+        <li class="quick-menu__item"><a href="#" class="flex-center">Quick 1</a></li>
+        <li class="quick-menu__item"><a href="#" class="flex-center">Quick 2</a></li>
+        <li class="quick-menu__item"><a href="#" class="flex-center">Quick 3</a></li>
+        <li class="quick-menu__item"><a href="#" class="flex-center">Quick 4</a></li>
       </ul>
     </section>
 
     <section class="section event-section">
       <h2 class="section__title">이벤트</h2>
       <div class="banner-row">
-        <a href="#" class="banner">
+        <a href="./img/event1.jpg" class="banner">
           <img src="./img/event1.jpg" alt="이벤트 배너"></a>
-        <a href="#" class="banner">
+        <a href="./img/event2.jpg" class="banner">
           <img src="./img/event2.jpg" alt="이벤트 배너"></a>
-        <a href="#" class="banner">
+        <a href="./img/event3.jpg" class="banner">
           <img src="./img/event3.jpg" alt="이벤트 배너"></a>
       </div>
     </section>
@@ -124,12 +105,12 @@
       <h2 class="section__title">카테고리별 베스트</h2>
       <div class="category-bar">
         <ul class="category-list flex" role="tablist">
-          <li><button class="category-list__btn is-active" role="tab" aria-selected="true">문학  &gt;</button></li>
-          <li><button class="category-list__btn" role="tab" aria-selected="false">경제/경영  &gt;</button></li>
-          <li><button class="category-list__btn" role="tab" aria-selected="false">자기계발  &gt;</button></li>
-          <li><button class="category-list__btn" role="tab" aria-selected="false">인문  &gt;</button></li>
-          <li><button class="category-list__btn" role="tab" aria-selected="false">사회  &gt;</button></li>
-          <li><button class="category-list__btn" role="tab" aria-selected="false">여행  &gt;</button></li>
+          <li><button class="category-list__btn is-active" role="tab" aria-selected="true">문학</button></li>
+          <li><button class="category-list__btn" role="tab" aria-selected="false">경제/경영</button></li>
+          <li><button class="category-list__btn" role="tab" aria-selected="false">자기계발</button></li>
+          <li><button class="category-list__btn" role="tab" aria-selected="false">인문</button></li>
+          <li><button class="category-list__btn" role="tab" aria-selected="false">사회</button></li>
+          <li><button class="category-list__btn" role="tab" aria-selected="false">여행</button></li>
         </ul>
       </div>
     </section>
@@ -137,12 +118,12 @@
     <section class="section chart-section">
       <h2 class="section__title">일반베스트
       </h2>
-      <a href="#" class="more-link">전체 더보기 &#43;</a>
+      <a href="#" class="more-link">전체 더보기 &gt;</a>
       <div class="chart-area">
         <div class="chart-col">
           <div class="chart-header">
           <h3 class="chart-title">문학 TOP7</h3>
-          <a href="#" class="more-link">더보기 &#43;</a>
+          <a href="#" class="more-link">더보기 &gt;</a>
         </div>
           <ol class="top7-list" id="top7List">
             <li class="top7__item flex"><span class="rank">1</span><span class="name">도서명 1</span></li>
@@ -155,7 +136,7 @@
         <div class="chart-col">          
         <div class="chart-header">
           <h3 class="chart-title">문학 TOP7</h3>
-          <a href="#" class="more-link">더보기 &#43;</a>
+          <a href="#" class="more-link">더보기 &gt;</a>
         </div>
           <ol class="top7-list" id="top7List">
             <li class="top7__item flex"><span class="rank">1</span><span class="name">도서명 1</span></li>
@@ -168,7 +149,7 @@
         <div class="chart-col">
           <div class="chart-header">
           <h3 class="chart-title">문학 TOP7</h3>
-          <a href="#" class="more-link">더보기 &#43;</a>
+          <a href="#" class="more-link">더보기 &gt;</a>
         </div>
           <ol class="top7-list" id="top7List">
             <li class="top7__item flex"><span class="rank">1</span><span class="name">도서명 1</span></li>
@@ -183,8 +164,8 @@
 
     <section class="section new-books-section">
       <header class="flex-between">
-        <h2 class="section__title">신간</h2>
-        <a href="#" class="more-link">더보기 &#43;</a>
+        <h2 class="section__title">무료</h2>
+        <a href="#" class="more-link">더보기 &gt;</a>
       </header>
       <div class="book-grid">
         <a href="#" class="book-item flex-center">신간 1</a>
@@ -203,11 +184,11 @@
 
     <section class="section event-section">
       <div class="banner-row">
-        <a href="#" class="banner">
+        <a href="./img/event4.jpg" class="banner">
           <img src="./img/event4.jpg" alt="이벤트 배너"></a>
-        <a href="#" class="banner">
+        <a href="./img/event5.jpg" class="banner">
           <img src="./img/event5.jpg" alt="이벤트 배너"></a>
-        <a href="#" class="banner">
+        <a href="./img/event6.jpg" class="banner">
           <img src="./img/event6.jpg" alt="이벤트 배너"></a>
       </div>
     </section>
@@ -228,7 +209,7 @@
     <section class="section new-books-section">
       <header class="flex-between">
         <h2 class="section__title">무료</h2>
-        <a href="#" class="more-link">더보기 &#43;</a>
+        <a href="#" class="more-link">더보기 &gt;</a>
       </header>
       <div class="book-grid">
         <a href="#" class="book-item flex-center">신간 1</a>
@@ -252,7 +233,7 @@
       </div>
       
       <div class="footer-ad flex-center">
-        <a href="#"><img src="./img/apk_down_banner.jpg" alt="특별 혜택 광고 배너"></a>
+        <a href="#"><img src="images/ad_810x60.jpg" alt="특별 혜택 광고 배너"></a>
       </div>
 
       <div class="footer-links-grid flex-between flex-wrap">
@@ -301,30 +282,20 @@
   <div class="footer-section footer-section--3">
     <div class="footer-inner flex-between">
       <p class="copyright">&copy; 2026 BOOKCUBE NETWORKS. ALL RIGHTS RESERVED.</p>
-      <img src="./img/site.png" alt="저작권">
     </div>
   </div>
 </footer>
 
- <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-
-  <!-- Initialize Swiper -->
-  <script>
-    var swiper = new Swiper(".newSwiper", {
-      slidesPerView: 5, //화면에 보이는 개수
-      spaceBetween: 30,
-      loop: true, // 무한 루프
-      pagination: {
-       clickable: true,
-      },
-      navigation: {
-        nextEl: "#new .swiper-button-next",
-        prevEl: "#new .swiper-button-prev",
-      }
-    });
-  </script>
-
-<script src="./js/book.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  // 간단한 Swiper 초기화 코드 예시
+  const swiper = new Swiper('.mySwiper', {
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    loop: true,
+  });
+</script>
 </body>
 </html>
