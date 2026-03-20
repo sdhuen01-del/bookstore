@@ -11,63 +11,75 @@
 
 </head>
 <body>
-
 <header class="site-header">
   <div class="header-container">
-    <div class="header-top flex-between">
+
+    <!-- TOP: 로고 / 검색 / 로그인 -->
+    <div class="header-top">
       <h1 class="logo">
-        <a href="/" class="flex-center">
+        <a href="/">
           <img src="./img/logo.png" alt="북큐브">
         </a>
       </h1>
 
-      <form class="search-box flex" role="search">
-        <label for="main-search" class="sr-only">도서 검색</label>
-        <input id="main-search" type="search" placeholder="검색어를 입력하세요">
-        <button type="submit" class="search-btn">검색</button>
+      <form class="search-box" role="search">
+        <input type="search" placeholder="검색어를 입력하세요">
+        <a href="#"><img src="./img/search.png" alt="찾기"></a>
       </form>
 
-      <nav class="user-menu" aria-label="사용자 메뉴">
-        <ul class="flex gap-md">
-          <li><a href="#">로그인</a></li>
-          <li><a href="#">회원가입</a></li>
+      <nav class="user-menu">
+        <ul>
+          <li><a href="#"><img src="./img/power.png" alt="로그인">로그인</a></li>
+          <li><a href="#"><img src="./img/circle-user.png" alt="회원가입">회원가입</a></li>
         </ul>
       </nav>
     </div>
 
-    <nav class="header-mid flex-between" aria-label="서비스 메뉴">
-      <ul class="nav-list mid-left">
+    <!-- MID: 주요 서비스 메뉴 -->
+    <nav class="header-mid">
+      <ul class="mid-left">
         <li><a href="#" class="is-active">서점</a></li>
         <li><a href="#">웹소설</a></li>
         <li><a href="#">웹툰</a></li>
       </ul>
-      <ul class="nav-list mid-right">
-        <li><a href="#">캐쉬충전</a></li>
+
+      <ul class="mid-right">
+        <li><a href="#">캐시충전</a></li>
+        <span class="divider">|</span>
         <li><a href="#">고객센터</a></li>
       </ul>
     </nav>
 
-    <nav class="header-bottom flex-between" aria-label="장르 메뉴">
-      <ul class="nav-list nav-main">
-        <a href="#"><img src="./img/all-category.png" alt="전체카테고리"></a>
+    <!-- BOTTOM: 장르 메뉴 -->
+    <nav class="header-bottom">
+      <ul class="nav-main">
+        <li class="all-category">
+          <a href="#"><img src="./img/all-category.png" alt="전체카테고리"></a>
+        </li>
         <li><a href="#">일반도서</a></li>
         <li><a href="#">로맨스</a></li>
         <li><a href="#">BL</a></li>
         <li><a href="#">무협/판타지</a></li>
         <li><a href="#">만화</a></li>
       </ul>
-      <ul class="nav-list nav-sub">
+
+      <ul class="nav-sub">
         <li><a href="#">베스트</a></li>
         <li><a href="#">신간</a></li>
         <li><a href="#">무료</a></li>
         <li><a href="#">이벤트</a></li>
       </ul>
     </nav>
+
   </div>
 </header>
 
+
+
+
 <main>
   <section id="new" class="slider-section" aria-label="주요 소식 배너">
+    <h2 class="slider-title">오늘의 추천</h2>
      <div class="swiper newSwiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide">Slide 1</div>
@@ -93,63 +105,92 @@
     
   </div>
   </section>
+<div class="content-container">
 
-  <div class="content-container">
-    <section class="section quick-menu-section">
-      <ul class="quick-menu">
-        <li class="quick-menu__item"><a href="#" class="flex-center">
-          <img src="./img/icon/q1.png" alt="이벤트 배너">국내 문학</a></li>
-        <li class="quick-menu__item"><a href="#" class="flex-center">
-          <img src="./img/icon/q2.png" alt="이벤트 배너">해외 문학</a></li>
-        <li class="quick-menu__item"><a href="#" class="flex-center">
-          <img src="./img/icon/q3.png" alt="이벤트 배너">오디오북</a></li>
-        <li class="quick-menu__item"><a href="#" class="flex-center">
-          <img src="./img/icon/q4.png" alt="이벤트 배너">이벤트</a></li>
-      </ul>
-    </section>
+  <!-- Quick Menu -->
+  <section class="quick-menu-section">
+    <ul class="quick-menu">
+      <li class="quick-menu__item">
+        <a href="#" class="quick-link">
+          <img src="./img/icon/q1.png" alt="국내 문학">
+          <span>국내문학<br>한국의 현실과 감성</span>
+        </a>
+      </li>
 
-    <section class="section event-section">
+      <li class="quick-menu__item">
+        <a href="#" class="quick-link">
+          <img src="./img/icon/q2.png" alt="해외 문학">
+          <span>해외 문학<br>다양한 문화와 사상</span>
+        </a>
+      </li>
+
+      <li class="quick-menu__item">
+        <a href="#" class="quick-link">
+          <img src="./img/icon/q3.png" alt="오디오북">
+          <span>오디오북<br>귀로듣는 즐거움!</span>
+        </a>
+      </li>
+
+      <li class="quick-menu__item">
+        <a href="#" class="quick-link">
+          <img src="./img/icon/q4.png" alt="이벤트">
+          <span>이벤트<br>다양한 혜택 가득!</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Event Section -->
+  <section class="event-section">
+    <div class="section-header">
       <h2 class="section__title">이벤트</h2>
-      <div class="banner-row">
-        <a href="#" class="banner">
-          <img src="./img/event1.jpg" alt="이벤트 배너"></a>
-        <a href="#" class="banner">
-          <img src="./img/event2.jpg" alt="이벤트 배너"></a>
-        <a href="#" class="banner">
-          <img src="./img/event3.jpg" alt="이벤트 배너"></a>
-      </div>
-    </section>
+      <a href="#" class="more-link">더보기 +</a>
+    </div>
 
-    <section class="section category-section">
-      <h2 class="section__title">카테고리별 베스트</h2>
-      <div class="category-bar">
-        <ul class="category-list flex" role="tablist">
-          <li><button class="category-list__btn is-active" role="tab" aria-selected="true">문학  &gt;</button></li>
-          <li><button class="category-list__btn" role="tab" aria-selected="false">경제/경영  &gt;</button></li>
-          <li><button class="category-list__btn" role="tab" aria-selected="false">자기계발  &gt;</button></li>
-          <li><button class="category-list__btn" role="tab" aria-selected="false">인문  &gt;</button></li>
-          <li><button class="category-list__btn" role="tab" aria-selected="false">사회  &gt;</button></li>
-          <li><button class="category-list__btn" role="tab" aria-selected="false">여행  &gt;</button></li>
-        </ul>
-      </div>
-    </section>
+    <div class="banner-row">
+      <a href="#" class="banner"><img src="./img/event1.jpg" alt="이벤트 배너"></a>
+      <a href="#" class="banner"><img src="./img/event2.jpg" alt="이벤트 배너"></a>
+      <a href="#" class="banner"><img src="./img/event3.jpg" alt="이벤트 배너"></a>
+    </div>
+  </section>
 
-    <section class="section chart-section">
-      <h2 class="section__title">일반베스트
-      </h2>
-      <a href="#" class="more-link">전체 더보기 &#43;</a>
+  <!-- Category Section -->
+  <section class="category-section">
+  <div class="category-header">
+    <h2 class="section__title">카테고리별 베스트</h2>
+
+    <ul class="category-list flex" role="tablist">
+      <li><button class="category-list__btn is-active">문학 &#62;</button></li>
+      <li><button class="category-list__btn">경제/경영 &#62;</button></li>
+      <li><button class="category-list__btn">자기계발 &#62;</button></li>
+      <li><button class="category-list__btn">인문 &#62;</button></li>
+      <li><button class="category-list__btn">사회 &#62;</button></li>
+      <li><button class="category-list__btn">여행 &#62;</button></li>
+    </ul>
+  </div>
+</section>
+
+</div>
+    <section class="chart-section">
+  <div class="chart-header-main">
+    <h2 class="section__title">일반 베스트</h2>
+    <a href="#" class="more-link">전체 더보기 +</a>
+  </div>
+
       <div class="chart-area">
         <div class="chart-col">
-          <div class="chart-header">
-          <h3 class="chart-title">문학 TOP7</h3>
-          <a href="#" class="more-link">더보기 &#43;</a>
-        </div>
-          <ol class="top7-list" id="top7List">
+      <div class="chart-header">
+        <h3 class="chart-title">전체 TOP7</h3>
+        <a href="#" class="more-link">더보기 +</a>
+      </div>        
+          <ol class="top7-list1" id="top7List1">
+            <li class="top7__item flex1"><span class="rank">0</span><span class="name">도서명 0</span></li>
             <li class="top7__item flex"><span class="rank">1</span><span class="name">도서명 1</span></li>
             <li class="top7__item flex"><span class="rank">2</span><span class="name">도서명 2</span></li>
             <li class="top7__item flex"><span class="rank">3</span><span class="name">도서명 3</span></li>
             <li class="top7__item flex"><span class="rank">4</span><span class="name">도서명 4</span></li>
             <li class="top7__item flex"><span class="rank">5</span><span class="name">도서명 5</span></li>
+            <li class="top7__item flex"><span class="rank">5</span><span class="name">도서명 6</span></li>
           </ol>
         </div>
         <div class="chart-col">          
@@ -157,12 +198,14 @@
           <h3 class="chart-title">문학 TOP7</h3>
           <a href="#" class="more-link">더보기 &#43;</a>
         </div>
-          <ol class="top7-list" id="top7List">
+          <ol class="top7-list2" id="top7List2">
+            <li class="top7__item flex1"><span class="rank">0</span><span class="name">도서명 0</span></li>
             <li class="top7__item flex"><span class="rank">1</span><span class="name">도서명 1</span></li>
             <li class="top7__item flex"><span class="rank">2</span><span class="name">도서명 2</span></li>
             <li class="top7__item flex"><span class="rank">3</span><span class="name">도서명 3</span></li>
             <li class="top7__item flex"><span class="rank">4</span><span class="name">도서명 4</span></li>
             <li class="top7__item flex"><span class="rank">5</span><span class="name">도서명 5</span></li>
+            <li class="top7__item flex"><span class="rank">5</span><span class="name">도서명 6</span></li>
           </ol>
         </div>
         <div class="chart-col">
@@ -170,33 +213,35 @@
           <h3 class="chart-title">문학 TOP7</h3>
           <a href="#" class="more-link">더보기 &#43;</a>
         </div>
-          <ol class="top7-list" id="top7List">
+          <ol class="top7-list3" id="top7List3">
+            <li class="top7__item flex1"><span class="rank">0</span><span class="name">도서명 0</span></li>
             <li class="top7__item flex"><span class="rank">1</span><span class="name">도서명 1</span></li>
             <li class="top7__item flex"><span class="rank">2</span><span class="name">도서명 2</span></li>
             <li class="top7__item flex"><span class="rank">3</span><span class="name">도서명 3</span></li>
             <li class="top7__item flex"><span class="rank">4</span><span class="name">도서명 4</span></li>
             <li class="top7__item flex"><span class="rank">5</span><span class="name">도서명 5</span></li>
+            <li class="top7__item flex"><span class="rank">5</span><span class="name">도서명 6</span></li>
           </ol>
         </div>
       </div>
     </section>
 
-    <section class="section new-books-section">
+    <section class="section new-books1-section">
       <header class="flex-between">
         <h2 class="section__title">신간</h2>
         <a href="#" class="more-link">더보기 &#43;</a>
       </header>
       <div class="book-grid">
-        <a href="#" class="book-item flex-center">신간 1</a>
-        <a href="#" class="book-item flex-center">신간 2</a>
-        <a href="#" class="book-item flex-center">신간 3</a>
-        <a href="#" class="book-item flex-center">신간 4</a>
-        <a href="#" class="book-item flex-center">신간 5</a>
-        <a href="#" class="book-item flex-center">신간 6</a>
-        <a href="#" class="book-item flex-center">신간 7</a>
-        <a href="#" class="book-item flex-center">신간 8</a>
-        <a href="#" class="book-item flex-center">신간 9</a>
-        <a href="#" class="book-item flex-center">신간 10</a>
+        <a href="#" class="book-item flex-center1">신간 1</a>
+        <a href="#" class="book-item flex-center1">신간 2</a>
+        <a href="#" class="book-item flex-center1">신간 3</a>
+        <a href="#" class="book-item flex-center1">신간 4</a>
+        <a href="#" class="book-item flex-center1">신간 5</a>
+        <a href="#" class="book-item flex-center1">신간 6</a>
+        <a href="#" class="book-item flex-center1">신간 7</a>
+        <a href="#" class="book-item flex-center1">신간 8</a>
+        <a href="#" class="book-item flex-center1">신간 9</a>
+        <a href="#" class="book-item flex-center1">신간 10</a>
         
       </div>
     </section>
@@ -212,7 +257,8 @@
       </div>
     </section>
 
-    <section class="section new-books-section">
+
+    <section class="section new2-books-section">
       <header class="flex-between">
         <h2 class="section__title">피터 스완슨 최신작! [킬유어 달링] 특집</h2>
         </header>
@@ -225,85 +271,94 @@
       </div>
     </section>
 
-    <section class="section new-books-section">
-      <header class="flex-between">
-        <h2 class="section__title">무료</h2>
-        <a href="#" class="more-link">더보기 &#43;</a>
-      </header>
-      <div class="book-grid">
-        <a href="#" class="book-item flex-center">신간 1</a>
-        <a href="#" class="book-item flex-center">신간 2</a>
-        <a href="#" class="book-item flex-center">신간 3</a>
-        <a href="#" class="book-item flex-center">신간 4</a>
-        <a href="#" class="book-item flex-center">신간 5</a>
-      </div>
-    </section>
+    
+<section class="section freeb-section">
+  <header class="flex-between">
+    <h2 class="section__title">무료</h2>
+    <a href="#" class="more-link">더보기 &#43;</a>
+  </header>
+
+  <div class="book-grid">
+    <a href="#" class="book-item freeb-item flex-center">신간 1</a>
+    <a href="#" class="book-item freeb-item flex-center">신간 2</a>
+    <a href="#" class="book-item freeb-item flex-center">신간 3</a>
+    <a href="#" class="book-item freeb-item flex-center">신간 4</a>
+    <a href="#" class="book-item freeb-item flex-center">신간 5</a>
+  </div>
+</section>
+
   </div>
 </main>
 
 <footer class="footer">
-  <div class="footer-section footer-section--1">
+  <section class="footer-section section-1">
     <div class="footer-inner">
-      <div class="footer-card notice-box flex">
+      <div class="notice-box">
         <strong class="notice-title">공지사항</strong>
         <ul class="notice-list">
-          <li><a href="#">[안내] 시스템 정기 점검 안내 (3/20)</a></li>
+          <li><a href="#">북큐브 서버 정기점검 안내 (3/20)</a></li>
         </ul>
       </div>
-      
-      <div class="footer-ad flex-center">
-        <a href="#"><img src="./img/apk_down_banner.jpg" alt="특별 혜택 광고 배너"></a>
+
+      <div class="footer-banner">
+        <a href="#"><img src="./img/apk_down_banner.jpg" alt="앱 다운로드 배너"></a>
       </div>
 
-      <div class="footer-links-grid flex-between flex-wrap">
+      <div class="footer-links">
         <div class="footer-group">
-          <h3 class="box-title">서비스</h3>
-          <div class="icon-row flex gap-sm">
-            <a href="#"><img src="images/icon1.png" alt="전자도서관"></a>
-            <a href="#"><img src="images/icon2.png" alt="앱 다운로드"></a>
+          <h3 class="group-title">서비스</h3>
+          <div class="icon-row">
+            <a href="#"><img src="./img/icon/iconb1.webp" alt="전자도서관"></a>
+            <a href="#"><img src="./img/icon/iconb2.png" alt="앱 다운로드"></a>
           </div>
         </div>
+
         <div class="footer-group">
-          <h3 class="box-title">바로가기</h3>
-          <div class="icon-row flex gap-sm">
-            <a href="#"><img src="images/icon_a.png" alt="쿠폰등록"></a>
-            <a href="#"><img src="images/icon_b.png" alt="원격연결"></a>
-            <a href="#"><img src="images/icon_c.png" alt="북캐시 충전"></a>
-            <a href="#"><img src="images/icon_d.png" alt="마이페이지"></a>
-            <a href="#"><img src="images/icon_e.png" alt="고객센터"></a>
+          <h3 class="group-title">바로가기</h3>
+          <div class="icon-row">
+            <a href="#"><img src="./img/icon/iconb3.webp" alt="쿠폰등록"></a>
+            <a href="#"><img src="./img/icon/iconb4.webp" alt="원격연결"></a>
+            <a href="#"><img src="./img/icon/iconb5.png" alt="북캐시 충전"></a>
+            <a href="#"><img src="./img/icon/iconb6.jpg" alt="마이페이지"></a>
+            <a href="#"><img src="./img/icon/iconb7.jpg" alt="고객센터"></a>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="footer-section footer-section--2">
+  <section class="footer-section section-2">
     <div class="footer-inner">
-      <nav class="footer-nav flex-center flex-wrap gap-md" aria-label="회사 정책 메뉴">
+      <nav class="footer-nav">
         <a href="#">회사소개</a>
+        <span>|</span>
         <a href="#">이용약관</a>
+        <span>|</span>
         <a href="#"><strong>개인정보처리방침</strong></a>
+        <span>|</span>
         <a href="#">청소년보호정책</a>
+        <span>|</span>
         <a href="#">사업자정보확인</a>
+        <span>|</span>
         <a href="#">제휴문의</a>
-        <a href="#">작자/출판사 전용메뉴</a>
+        <span>|</span>
+        <a href="#">작가/출판사 전용메뉴</a>
       </nav>
-      
-      <div class="footer-info flex-between flex-wrap">
-        <address class="company-address">
-          <strong>주식회사 북큐브네트웍스</strong><br>
-          대표이사 : 유철종주소 : 우)08380 서울 구로구 디지털로 33길 27, 삼성IT밸리 905~907호사업자 등록번호 : 113-86-24199통신판매업 신고번호 : 제 2008-서울구로-0747호개인정보 관리 책임자 : 나호용도서비 소득공제 대상 사업자 인증번호 : 312018060044고객센터 : webmaster@bookcube.com전자도서관 및 제휴 대표번호 : 1588-1925
-        </address>
-      </div>
-    </div>
-  </div>
 
-  <div class="footer-section footer-section--3">
-    <div class="footer-inner flex-between">
-      <p class="copyright">&copy; 2026 BOOKCUBE NETWORKS. ALL RIGHTS RESERVED.</p>
-      <img src="./img/site.png" alt="저작권">
+      <address class="company-info">
+        상호 : 주식회사 북큐브네트웍스 <span>|</span> 대표이사 : 유철종 <span>|</span> 주소 : 우)08380 서울 구로구 디지털로 33길 27, 삼성IT밸리 905~907호 <span>|</span> 사업자 등록번호 : 113-86-24199<br>
+        통신판매업 신고번호 : 제 2008-서울구로-0747호 <span>|</span> 개인정보 관리 책임자 : 나호용 <span>|</span> 도서비 소득공제 대상 사업자 인증번호 : 312018060044<br>
+        고객센터 : webmaster@bookcube.com <span>|</span> 전자도서관 및 제휴 대표번호 : 1588-1925
+      </address>
     </div>
-  </div>
+  </section>
+
+  <section class="footer-section section-3">
+    <div class="footer-inner footer-bottom">
+      <p>&copy; 2026 BOOKCUBE NETWORKS. ALL RIGHTS RESERVED.</p>
+      <img src="./img/site.png" alt="저작권 인증">
+    </div>
+  </section>
 </footer>
 
  <!-- Swiper JS -->
@@ -328,3 +383,4 @@
 <script src="./js/book.js"></script>
 </body>
 </html>
+   
