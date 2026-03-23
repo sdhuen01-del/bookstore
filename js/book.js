@@ -2,7 +2,7 @@
 // ==========================
 // 1) 공통: Kakao 책 검색
 // ==========================
-const KAKAO_REST_KEY = "edc2045d293aaefae2c494a92245c19a"; 
+const KAKAO_REST_KEY = "edc2045d293aaefae2c494a92245c19a";
 
 async function fetchBooks(query, size = 17) {
   const params = new URLSearchParams({
@@ -110,43 +110,77 @@ async function fillTopList({ listSelector, queries, size = 5, genreLabel = "" })
     return;
   }
 
-  // ✅ 1~6까지만, 최대 6칸
-  const count = Math.min(6, items.length, queries.length);
+  // ✅ 화면에는 무조건 7칸을 채운다고 가정 (li가 7개 미만이면 있는 만큼만)
+  const targetCount = Math.min(7, items.length);
 
-  const results = await Promise.all(
-    queries.slice(0, count).map(q => fetchBooks(q, size).catch(error => ({ error })))
-  );
+  // ✅ 1) 우선 placeholder로 7칸 모두 채워두기 (빈칸 방지)
+  const genreText = escapeHtml(genreLabel || "장르");
+  for (let i = 0; i < targetCount; i++) {
+    items[i].innerHTML = `
+      <a href="#" class="top7-link" aria-disabled="true" onclick="return false;">
+        <div class="top7-thumb ph"></div>
+        <p class="top7-meta">
+          <strong class="top7-title">불러오는 중…</strong>
+          <span class="top7-author">잠시만요</span>
+          <span class="top7-genre">${genreText}</span>
+        </p>
+      </a>
+    `;
+  }
 
-  for (let i = 0; i < count; i++) {
+  // ✅ 2) 쿼리들을 돌면서 "유효한 doc"만 모아서 최대 7개까지 채움
+  const filledDocs = [];
+
+  // 병렬 fetch는 결과 없는 쿼리에도 자리를 소비하는 단점이 있어
+  // "7개 채우기" 목적이면 순차(또는 제한 병렬)가 더 안정적임
+  for (const q of queries) {
+    if (filledDocs.length >= targetCount) break;
+
+    try {
+      const result = await fetchBooks(q, size);
+      const doc = pickBestDocument(result?.documents ?? []);
+      if (!doc) continue; // 결과 없으면 다음 쿼리로
+
+      filledDocs.push({ doc, fallbackQuery: q });
+    } catch (error) {
+      console.error(`[fillTopList] API 실패: "${q}"`, error);
+      // 실패한 건 스킵하고 계속 채우기
+    }
+  }
+
+  // ✅ 3) 모은 doc들로 앞에서부터 렌더링 (번호는 아예 넣지 않음)
+  for (let i = 0; i < targetCount; i++) {
     const li = items[i];
-    const result = results[i];
+    const packed = filledDocs[i];
 
-    if (result?.error) {
-      console.error(`[fillTopList] API 실패: "${queries[i]}"`, result.error);
+    // doc이 부족하면 "데이터 없음" placeholder로 유지
+    if (!packed) {
+      li.innerHTML = `
+        <a href="#" class="top7-link" aria-disabled="true" onclick="return false;">
+          <div class="top7-thumb ph"></div>
+          <p class="top7-meta">
+            <strong class="top7-title">추천 결과 없음</strong>
+            <span class="top7-author">다른 키워드로 시도해보세요</span>
+            <span class="top7-genre">${genreText}</span>
+          </p>
+        </a>
+      `;
       continue;
     }
 
-    const doc = pickBestDocument(result.documents);
-    if (!doc) continue;
+    const { doc, fallbackQuery } = packed;
 
-    const title = escapeHtml(doc.title || queries[i]);
+    const title = escapeHtml(doc.title || fallbackQuery);
     const authors = escapeHtml((doc.authors || []).join(", "));
     const link = doc.url || "#";
     const thumb = doc.thumbnail || "";
 
-    // ✅ 랭크 1~6
-    const rankEl = li.querySelector(".rank");
-    if (rankEl) rankEl.textContent = String(i + 1);
-
-    // ✅ Kakao 책 API에는 "장르" 필드가 없는 경우가 많아서,
-    // 컬럼별로 전달한 genreLabel을 표시하도록 처리 (원하는 장르명 넣으면 됨)
-    const genreText = escapeHtml(genreLabel || "장르");
-
-    // ✅ li 전체를 썸네일 + p(제목/저자/장르) 구조로 렌더링 + 링크 연결
     li.innerHTML = `
-      <span class="rank">${i + 1}</span>
       <a href="${link}" target="_blank" rel="noopener" class="top7-link">
-        ${thumb ? `<img class="top7-thumb" src="${thumb}" alt="${title}">` : `<div class="top7-thumb ph"></div>`}
+        ${thumb
+          ? `<img class="top7-thumb" src="${thumb}" alt="${title}">`
+          : `<div class="top7-thumb ph"></div>`
+        }
         <p class="top7-meta">
           <strong class="top7-title">${title}</strong>
           <span class="top7-author">${authors || "저자 정보 없음"}</span>
@@ -155,8 +189,8 @@ async function fillTopList({ listSelector, queries, size = 5, genreLabel = "" })
       </a>
     `;
   }
-
 }
+
 
 // ==========================
 // 3) Swiper 안 링크 클릭 이슈 방지(선택)
@@ -179,15 +213,14 @@ async function initBookSections() {
     await fillSection({
       boxSelector: "#new .swiper-slide", // 너 기존 코드 유지
       queries: [
-        "[고화질]그리스 로마 신화",
+        "그리스 로마 신화",
         "일곱번째 배심원",
-        "글쓰기를 처음 시작 했습니다(개정2판)",
         "남편을 죽이는 서른가지 방법",
         "킬 유어 달링",
         "빚 10억이 선물해준 자유",
         "나는메트로폴리탄 미술관의",
         "행동하지 않으면 인생은 바뀌지",
-        "개미 1 (개정판)",
+        "개미 1",
         "카지노 (개정판)",
         "마침내 특이점이 시작된다",
         "처음부터 시작하는 주식투자 단타전략",
@@ -205,31 +238,37 @@ async function initBookSections() {
       boxSelector: "section.new-books1-section .book-grid a.book-item.flex-center1",
       queries: [
         "괜찮아 나도 그랬으니까",
-        "2025 하루 1시간 ChatGPT로 월100",
+        "GPT로 월 100만원",
         "폴란드의 비밀 양육원",
         "혁신패권",
         "퇴직 후 50년",
         "이명(Tinnitus) 평가 및 재활 워크북",
-        "괜찬지 않은 날에도 괜찮은 척한",
-        "[오디오북]헤르만 헤세의 나로",
-        "문화이 패턴",
-        "[오디오북]지적질 늑대",
+        "괜찮지 않은 날에도 괜찮은 척한",
+        "헤르만 헤세의 나로",
+        "문화의 패턴",
+        "지적질 늑대",
       ],
       size: 10,
     });
 
-  
+
+
     await fillSection({
-      boxSelector: "section.new2-books-section .book-grid a.book-item.flex-center",
+      boxSelector: "#new2_books_section .swiper-slide a.book-item.flex-center",
       queries: [
         "킬 유어 달링",
         "죽여 마땅한 사람들",
         "살려마땅한 사람들",
         "여덟 건의 완벽한 살인",
         "살인 재능",
+        "아홉 명의 목숨",
+        "312호에서는 303호 여자가 보인다",
+        "그녀는 증인의 얼굴을 하고 있었다",
+        "아낌없이 뺏는 사랑"
       ],
-      size: 5,
+      size: 7
     });
+
 
     await fillSection({
       boxSelector: "section.freeb-section .book-grid a.book-item.freeb-item.flex-center",
@@ -238,26 +277,27 @@ async function initBookSections() {
         "게으른 게 아니라 충전중입니다",
         "왜 나는 항상 연애가 어려울까",
         "대륙상술사[체험판]",
-        "소나기밥 공주 (체험판)",
+        "소나기밥 공주",
       ],
       size: 5,
     });
 
-    
+
     // ✅ TOP7: id로 정확히 잡기
-    
+
     await fillTopList({
       listSelector: "#top7List1",
       queries: [
-        "시민참여론(제2판)",
+        "시민참여론",
         "대영웅",
         "투자자산운용사 실제유형",
-        "마케팅(제2판)",
+        "마케팅",
         "현대사회와 스포츠:미래",
         "형사소송법 제11판",
-        "추가 도서 1",
+        "형사소송법",
+        "그리스 로마 신화",
       ],
-      size: 5,
+      size: 8,
       genreLabel: "전체",   // ✅ 표시될 장르(원하면 바꿔)
     });
 
@@ -268,11 +308,11 @@ async function initBookSections() {
         "무법자",
         "세계 추리소설 필독서 50",
         "계절이 지나 나로 남다",
-        "양들의 침묵(개정판)",
+        "양들의 침묵",
         "남편들을 죽이는 서른가지",
-        "추가 도서 1",
+        "소년이 온다",
       ],
-      size: 5,
+      size: 8,
       genreLabel: "문학",
     });
 
@@ -280,14 +320,16 @@ async function initBookSections() {
       listSelector: "#top7List3",
       queries: [
         "진보를 위한 주식투자",
-        "디지털경영(제4판)",
-        "차이나 마케팅(제6판)",
-        "현명한 투자자 1 (개정4판)",
+        "디지털경영",
+        "차이나 마케팅",
+        "현명한 투자자 1",
         "실패를 성공으로 바꾸는",
         "단 3개의 미국 ETP로 은퇴",
-        "추가 도서 1",
+        "30분만에 타로마스터 되는 방법",
+        "투자자산운용사",
+        "2025~2026파생상품투자"
       ],
-      size: 5,
+      size: 8,
       genreLabel: "경제/경영",
     });
 
