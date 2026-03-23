@@ -81,7 +81,7 @@
   <section id="new" class="slider-section" aria-label="주요 소식 배너">
     <h2 class="slider-title">오늘의 추천</h2>
      <div class="swiper newSwiper">
-    <div class="swiper-wrapper">
+      <div class="swiper-wrapper">
       <div class="swiper-slide">Slide 1</div>
       <div class="swiper-slide">Slide 2</div>
       <div class="swiper-slide">Slide 3</div>
@@ -113,45 +113,52 @@
       <li class="quick-menu__item">
         <a href="#" class="quick-link">
           <img src="./img/icon/q1.png" alt="국내 문학">
-          <span>국내문학<br>한국의 현실과 감성</span>
+          <span><strong>국내문학</strong>한국의 현실과 감성</span>
         </a>
       </li>
 
       <li class="quick-menu__item">
         <a href="#" class="quick-link">
           <img src="./img/icon/q2.png" alt="해외 문학">
-          <span>해외 문학<br>다양한 문화와 사상</span>
+          <span><strong>해외문학</strong>다양한 문화와 사상</span>
         </a>
       </li>
 
       <li class="quick-menu__item">
         <a href="#" class="quick-link">
           <img src="./img/icon/q3.png" alt="오디오북">
-          <span>오디오북<br>귀로듣는 즐거움!</span>
+          <span><strong>오디오북</strong>귀로듣는 즐거움!</span>
         </a>
       </li>
 
       <li class="quick-menu__item">
         <a href="#" class="quick-link">
           <img src="./img/icon/q4.png" alt="이벤트">
-          <span>이벤트<br>다양한 혜택 가득!</span>
+          <span><strong>이벤트</strong>다양한 혜택 가득!</span>
         </a>
       </li>
     </ul>
   </section>
 
   <!-- Event Section -->
-  <section class="event-section">
-    <div class="section-header">
-      <h2 class="section__title">이벤트</h2>
-      <a href="#" class="more-link">더보기 +</a>
-    </div>
-
-    <div class="banner-row">
-      <a href="#" class="banner"><img src="./img/event1.jpg" alt="이벤트 배너"></a>
-      <a href="#" class="banner"><img src="./img/event2.jpg" alt="이벤트 배너"></a>
-      <a href="#" class="banner"><img src="./img/event3.jpg" alt="이벤트 배너"></a>
-    </div>
+  <section id="event" class="slider-section" aria-label="이벤트">
+      <div class="section-header">
+        <h2 class="section__title">이벤트</h2>
+        <a href="#" class="more-link">더보기 +</a>
+      </div>
+      <div class="swiper eventSwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="./img/banner1b.jpg" alt="이벤트1"></div>
+          <div class="swiper-slide"><img src="./img/banner2b.jpg" alt="이벤트2"></div>
+          <div class="swiper-slide"><img src="./img/banner3b.jpg" alt="이벤트3"></div>
+          <div class="swiper-slide"><img src="./img/banner4b.jpg" alt="이벤트4"></div>
+          <div class="swiper-slide"><img src="./img/banner5.jpg" alt="이벤트5"></div>
+          <div class="swiper-slide"><img src="./img/banner6.jpg" alt="이벤트6"></div>
+          
+        </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>    
+      </div>
   </section>
 
   <!-- Category Section -->
@@ -246,17 +253,18 @@
       </div>
     </section>
 
-    <section class="section event-section">
-      <div class="banner-row">
-        <a href="#" class="banner">
-          <img src="./img/event4.jpg" alt="이벤트 배너"></a>
-        <a href="#" class="banner">
-          <img src="./img/event5.jpg" alt="이벤트 배너"></a>
-        <a href="#" class="banner">
-          <img src="./img/event6.jpg" alt="이벤트 배너"></a>
+    <section id="banner" class="slider-section" aria-label="배너">
+      <div class="swiper bannerSwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="./img/banner1b.jpg" alt="배너1"></div>
+          <div class="swiper-slide"><img src="./img/banner2b.jpg" alt="배너2"></div>
+          <div class="swiper-slide"><img src="./img/banner3b.jpg" alt="배너3"></div>
+          <div class="swiper-slide"><img src="./img/banner4b.jpg" alt="배너4"></div>
+        </div>      
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>    
       </div>
     </section>
-
 
     <section class="section new2-books-section">
       <header class="flex-between">
@@ -356,12 +364,12 @@
   <section class="footer-section section-3">
     <div class="footer-inner footer-bottom">
       <p>&copy; 2026 BOOKCUBE NETWORKS. ALL RIGHTS RESERVED.</p>
-      <img src="./img/site.png" alt="저작권 인증">
+      <img src="./img/site.png" alt="저작권 인증"><img src="./img/rightNow.svg" alt="바로지금">
     </div>
   </section>
 </footer>
 
- <!-- Swiper JS -->
+<!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <!-- Initialize Swiper -->
@@ -378,9 +386,51 @@
         prevEl: "#new .swiper-button-prev",
       }
     });
+  // 2. 이벤트
+  const eventSwiper = new Swiper(".eventSwiper", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+      nextEl: "#event .swiper-button-next",
+      prevEl: "#event .swiper-button-prev",
+    }
+  });
+
+  // 3. 배너
+  const bannerSwiper = new Swiper(".bannerSwiper", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+      nextEl: "#banner .swiper-button-next",
+      prevEl: "#banner .swiper-button-prev",
+    }
+  });
   </script>
 
 <script src="./js/book.js"></script>
+
+<script>
+  const categoryButtons = document.querySelectorAll('.category-list__btn');
+  const chartTitle = document.querySelector('.chart-header-main .section__title');
+
+  categoryButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // 모든 버튼에서 is-active 제거
+      categoryButtons.forEach(b => b.classList.remove('is-active'));
+
+      // 클릭한 버튼 활성화
+      btn.classList.add('is-active');
+
+      // 버튼 텍스트에서 " >" 제거
+      const categoryName = btn.textContent.replace(' >', '');
+
+      // 차트 타이틀 변경
+      chartTitle.textContent = categoryName + ' 베스트';
+    });
+  });
+</script>
+
 </body>
 </html>
-   
