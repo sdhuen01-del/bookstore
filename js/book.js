@@ -81,7 +81,18 @@ async function fillSection({ boxSelector, queries, size = 17 }) {
     const authors = escapeHtml((doc.authors || []).join(", "));
     const thumb = doc.thumbnail;
     const link = doc.url; // 카카오 도서 검색 결과 URL
+    // [수정 포인트] 뱃지 조건 생성 (제목에 '체험판'이 있거나 무료 섹션인 경우)
+    const isFree = title.includes("체험판") || box.classList.contains("freeb-item");
+    // 2. 10% 적립 조건 (부모 요소 중 id가 new2_books_section인 것이 있는지 확인)
+    const isNewSection = box.closest("#new2_books_section") !== null;
 
+    let badgeHtml = "";
+    if (isFree) {
+      badgeHtml = `<div class="badge-free">1권<br>무료</div>`;
+      } else if (isNewSection) {
+      // 10% 적립용 클래스 badge-save 추가
+      badgeHtml = `<div class="badge-free badge-save">10%<br>적립</div>`;
+    }
     // box가 <a>면 실제 링크로 연결
     if (box.tagName === "A") {
       box.href = link || "#";
@@ -89,8 +100,12 @@ async function fillSection({ boxSelector, queries, size = 17 }) {
       box.rel = "noopener";
     }
 
+    // [수정 포인트] 구조 변경: img를 .thumb-wrap으로 감싸고 뱃지 삽입  
     box.innerHTML = `
-      <img src="${thumb}" alt="${title}">
+      <div class="thumb-wrap">
+        ${badgeHtml}
+        <img src="${thumb}" alt="${title}">
+      </div>
       <h3>${title}</h3>
       <h6>${authors}</h6>
     `;
