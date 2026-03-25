@@ -348,6 +348,31 @@ async function initBookSections() {
       genreLabel: "경제/경영",
     });
 
+    
+// ✅ 서점 1권(제목만)
+    await fillSection({
+      boxSelector: "section.bj-section .book-grid a.book-item",
+      queries: ["킬 유어 달링"],
+      size: 10,
+      renderMode: "storeTitleOnly",
+      forceInternalLink: "./book_detail.html"
+    });
+
+    // ✅ 이 분야의 베스트 5권(저자 포함)
+    await fillSection({
+      boxSelector: "section.best-field .book-grid a.book-item",
+      queries: [
+        "양들의 침묵",
+        "세계추리 소설단편",
+        "에이전트 AGENT",
+        "만능감정사 Q의 사건수첩",
+        "법의관"
+      ],
+      size: 10,
+      renderMode: "bestWithAuthor"
+    });
+
+
 
     // Swiper 안 링크 클릭 문제 있으면 활성화
     enableSwiperLinkClicks(".swiper");

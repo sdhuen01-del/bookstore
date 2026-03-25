@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sub</title>   
+
+    <link rel="stylesheet" href="./css/sub.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <div class="header-top">
+        <h1 class="logo">
+          <a href="/">
+            <img src="./img/logo.png" alt="북큐브">
+          </a>
+        </h1>
+
+        <form class="search-box" role="search">
+          <input type="search" placeholder="검색어를 입력하세요">
+          <a href="#"><img src="./img/search.png" alt="찾기"></a>
+        </form>
+
+        <nav class="user-menu">
+          <ul>
+            <li><a href="#"><img src="./img/power.png" alt="로그인">로그인</a></li>
+            <li><a href="#"><img src="./img/circle-user.png" alt="회원가입">회원가입</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <nav class="header-mid">
+        <ul class="mid-left">
+          <li><a href="#" class="is-active">서점</a></li>
+          <li><a href="#">웹소설</a></li>
+          <li><a href="#">웹툰</a></li>
+        </ul>
+
+        <ul class="mid-right">
+          <li><a href="#">캐시충전</a></li>
+          <li class="divider" aria-hidden="true">|</li>
+          <li><a href="#">고객센터</a></li>
+        </ul>
+      </nav>
+
+      <nav class="header-bottom">
+        <ul class="nav-main">
+          <li class="all-category">
+            <a href="#"><img src="./img/all-category.png" alt="전체카테고리"></a>
+          </li>
+          <li><a href="#">일반도서</a></li>
+          <li><a href="#">로맨스</a></li>
+          <li><a href="#">BL</a></li>
+          <li><a href="#">무협/판타지</a></li>
+          <li><a href="#">만화</a></li>
+        </ul>
+
+        <ul class="nav-sub">
+          <li><a href="#">베스트</a></li>
+          <li><a href="#">신간</a></li>
+          <li><a href="#">무료</a></li>
+          <li><a href="#">이벤트</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+ 
+
+<main class="container">
+
+  <!-- 1) nav 아래 breadcrumb 영역 -->
+  <section class="page-path">
+    <div class="inner">
+      <p class="breadcrumb">Home &gt; 문학 &gt; 추리/미스터리/스릴러</p>
+    </div>
+  </section>
+
+  <!-- 2) breadcrumb 아래 h2 + 라인 -->
+  <section class="page-title">
+    <div class="inner">
+      <h2>킬 유어 달링</h2>
+    </div>
+  </section>
+
+<section class="book-detail">
+  <div class="book-info-top">
+
+    <!-- 책 이미지 -->
+    <div class="sub_box"></div>
+
+    <!-- 오른쪽 정보 -->
+    <div class="book-info-text">
+
+      <!-- 저자 / 출판 -->
+      <div class="book-head">
+        <p class="book-author">
+          피터 스와슨 저 | 노진선 역
+        </p>
+        <p class="book-publisher">
+          푸슨숲 출판 | 2026.01.05
+        </p>
+      </div>
+
+      <!-- 별점 / 리뷰 / 공유 -->
+      <div class="book-rating">
+        <span class="stars">★★★★★</span>
+        <span class="score">0.0 (0명)</span>
+        <a href="#" class="review-link">
+          💬 서평(0)
+        </a>
+        <a href="#" class="share-link">
+          🔗 공유하기
+        </a>
+      </div>
+
+      <!-- 테이블 박스 -->
+      <div class="info-box">
+        <table class="info-table">
+          <tr>
+            <th>전자책</th>
+            <td class="price-original">정가 15,300원</td>
+          </tr>
+          <tr>
+            <th>구매</th>
+            <td class="price-sale">
+              15,300원 <span class="point">+10% 적립</span>
+            </td>
+          </tr>
+          <tr>
+            <th>출간정보</th>
+            <td>2026.01.05 | EPUB | 33.61MB</td>
+          </tr>
+          <tr>
+            <th>소득공제</th>
+            <td>가능 (대여는 제외)</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- 지원 정보 -->
+      <div class="device-info">
+        <p>지원단말기: iOS 11.0+, Android 6.0+, PC Windows 8 이상</p>
+        <p class="tts">
+          🔊 듣기(TTS) 지원 <span>(모바일에서만 이용 가능)</span>
+        </p>
+      </div>
+
+      <!-- 버튼 영역 -->
+      <div class="action-buttons">
+        <button class="icon-btn">🛒</button>
+        <button class="icon-btn">🎁</button>
+        <button class="btn-buy">구매하기</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 하단 구분선 -->
+  <div class="section-divider">
+    <div class="event-box">
+    <span class="event-badge">이벤트</span>
+    <p>(~3/31) 남편이 우리의 완전범죄를 소설로 쓰기 시작했다 [킬 유어 달링]</p>
+  </div>
+  </div>
+</section>
+
+    
+<!-- 탭 박스 -->
+<section class="detail-tabs">
+  <div class="inner">
+    <nav class="tab-nav" aria-label="도서 상세 탭">
+      <button type="button" class="tab-btn active" data-target="#tab-intro">책 소개</button>
+      <button type="button" class="tab-btn" data-target="#tab-toc">목차</button>
+      <button type="button" class="tab-btn" data-target="#tab-author">저자 소개</button>
+      <button type="button" class="tab-btn" data-target="#tab-review">서평</button>
+    </nav>
+
+    <!-- 탭 콘텐츠(스크롤 이동 대상) -->
+    <div class="tab-contents">
+      <article id="tab-intro" class="tab-panel">
+        <h3 class="tab-title">책 소개</h3>
+        <div id="introContent" class="tab-body">불러오는 중...</div>
+      </article>
+
+      <article id="tab-toc" class="tab-panel">
+        <h3 class="tab-title">목차</h3>
+        <div id="tocContent" class="tab-body">불러오는 중...</div>
+      </article>
+
+      <article id="tab-author" class="tab-panel">
+        <h3 class="tab-title">저자 소개</h3>
+        <div id="authorContent" class="tab-body">불러오는 중...</div>
+      </article>
+
+      
+<article id="tab-review" class="tab-panel">
+  <h3 class="tab-title">서평</h3>
+
+  <div id="reviewContent" class="tab-body">
+    <div class="review-empty">
+      <p class="review-msg">별점으로 평가해 주세요!</p>
+
+      <div class="rating-stars" aria-label="별점 선택">
+        <input type="radio" id="rate5" name="rate" value="5"><label for="rate5">★</label>
+        <input type="radio" id="rate4" name="rate" value="4"><label for="rate4">★</label>
+        <input type="radio" id="rate3" name="rate" value="3"><label for="rate3">★</label>
+        <input type="radio" id="rate2" name="rate" value="2"><label for="rate2">★</label>
+        <input type="radio" id="rate1" name="rate" value="1"><label for="rate1">★</label>
+      </div>
+
+      <a href="#" class="btn-review-write">서평쓰기</a>
+    </div>
+  </div>
+</article>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section bj-section">
+      
+<header class="flex-between">
+  <h2 class="section__title">서점</h2>
+
+  <div class="sort-bar" aria-label="정렬">
+    <button type="button" class="sort-btn active">좋아요순</button>
+    <button type="button" class="sort-btn">인기순</button>
+    <button type="button" class="sort-btn">최신순</button>
+  </div>
+</header>
+
+      <div class="book-grid">
+        <a href="#" class="book-item bj-item flex-center"></a>
+  </div>
+</section>
+   
+    <section class="best-field">
+      <header class="flex-between">
+        <h2 class="section__title">이 분야의 베스트</h2>
+        <a href="#" class="more-link">더보기 &#43;</a>
+      </header>
+      <div class="book-grid">
+        
+<a class="book-item"></a>
+    <a class="book-item"></a>
+    <a class="book-item"></a>
+    <a class="book-item"></a>
+    <a class="book-item"></a>
+</div>
+</section>   
+    
+    <section id="new2_books_section" class="slider-section" aria-label="피터 스완슨 최신작 슬라이더">
+      <header class="flex-between">
+        <h2 class="section__title">피터 스완슨 최신작! [킬유어 달링] 특집</h2>
+      </header>
+      <div class="swiper new2_books_sectionSwiper" aria-roledescription="carousel">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><a href="#" class="book-item flex-center"></a></div>
+          <div class="swiper-slide"><a href="#" class="book-item flex-center"></a></div>
+          <div class="swiper-slide"><a href="#" class="book-item flex-center"></a></div>
+          <div class="swiper-slide"><a href="#" class="book-item flex-center"></a></div>
+          <div class="swiper-slide"><a href="#" class="book-item flex-center"></a></div>
+          <div class="swiper-slide"><a href="#" class="book-item flex-center"></a></div>
+          <div class="swiper-slide"><a href="#" class="book-item flex-center"></a></div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </section>
+
+    
+<section class="ebook-guide">
+  <div class="inner">
+    <h2 class="section__title">eBook 이용안내</h2>
+    <div id="ebookGuideContent" class="guide-body">불러오는 중...</div>
+  </div>
+</section>
+
+
+  <footer class="footer">
+    <section class="footer-section section-1">
+      <div class="footer-inner">
+        <div class="notice-box">
+          <strong class="notice-title">공지사항</strong>
+          <ul class="notice-list">
+            <li><a href="#">북큐브 서버 정기점검 안내 (3/20)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-banner">
+          <a href="#"><img src="./img/apk_down_banner.jpg" alt="앱 다운로드 배너"></a>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-group">
+            <h3 class="group-title">서비스</h3>
+            <div class="icon-row">
+              <a href="#"><img src="./img/icon/iconb1.webp" alt="전자도서관">전자도서관</a>
+              <a href="#"><img src="./img/icon/iconb2.png" alt="앱 다운로드">앱 다운로드</a>
+            </div>
+          </div>
+
+          <div class="footer-group">
+            <h3 class="group-title">바로가기</h3>
+            <div class="icon-row">
+              <a href="#"><img src="./img/icon/iconb3.webp" alt="쿠폰등록">쿠폰등록</a>
+              <a href="#"><img src="./img/icon/iconb4.webp" alt="원격연결">원격 연결</a>
+              <a href="#"><img src="./img/icon/iconb5.png" alt="북캐시 충전">북캐시 충전</a>
+              <a href="#"><img src="./img/icon/iconb6.jpg" alt="마이페이지">마이페이지</a>
+              <a href="#"><img src="./img/icon/iconb7.jpg" alt="고객센터">고객센터</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-section section-2">
+      <div class="footer-inner">
+        <nav class="footer-nav">
+          <a href="#">회사소개</a>
+          <span>|</span>
+          <a href="#">이용약관</a>
+          <span>|</span>
+          <a href="#"><strong>개인정보처리방침</strong></a>
+          <span>|</span>
+          <a href="#">청소년보호정책</a>
+          <span>|</span>
+          <a href="#">사업자정보확인</a>
+          <span>|</span>
+          <a href="#">제휴문의</a>
+          <span>|</span>
+          <a href="#">작가/출판사 전용메뉴</a>
+        </nav>
+
+        <div class="icon-group">
+          <a href="#" class="icon-link"><img src="./img/gb1.JPG" alt="Google Play" class="height-40"></a>
+          <a href="#" class="icon-link"><img src="./img/ab1.JPG" alt="App Store" class="height-40"></a>
+          <a href="#" class="icon-link"><img src="./img/bb1.JPG" alt="소득공제" class="height-40"></a>
+          <a href="#" class="icon-link"><img src="./img/eb1.JPG" alt="이메일 문의" class="height-40"></a>
+
+          <a href="#" class="icon-link"><img src="./img/gn2.JPG" alt="X" class="height-30"></a>
+          <a href="#" class="icon-link"><img src="./img/nb2.JPG" alt="Naver Blog" class="height-30"></a>
+          <a href="#" class="icon-link"><img src="./img/fb2.JPG" alt="Facebook" class="height-30"></a>
+          <a href="#" class="icon-link"><img src="./img/ins2.JPG" alt="Instagram" class="height-30"></a>
+          <a href="#" class="icon-link"><img src="./img/yt2.JPG" alt="YouTube" class="height-30"></a>
+        </div>
+
+        <address class="company-info">
+          상호 : 주식회사 북큐브네트웍스 <span>|</span> 대표이사 : 유철종 <span>|</span> 주소 : 우)08380 서울 구로구 디지털로 33길 27, 삼성IT밸리 905~907호
+          <span>|</span> 사업자 등록번호 : 113-86-24199<br> 통신판매업 신고번호 : 제 2008-서울구로-0747호 <span>|</span>
+          개인정보 관리 책임자 : 나호용 <span>|</span> 도서비 소득공제 대상 사업자 인증번호 :
+          312018060044<br>
+          고객센터 : webmaster@bookcube.com <span>|</span> 전자도서관 및 제휴 대표번호 : 1588-1925
+        </address>
+      </div>
+    </section>
+
+    <section class="footer-section section-3">
+      <div class="footer-inner footer-bottom">
+        <p>&copy; 2026 BOOKCUBE NETWORKS. ALL RIGHTS RESERVED.</p>
+        <img src="./img/site.png" alt="저작권 인증"><img src="./img/rightNow.svg" alt="바로지금">
+      </div>
+    </section>
+  </footer>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+ <script>
+    
+// 피터 스완슨 최신작 슬라이더
+const new2_books_sectionSwiper = new Swiper(".new2_books_sectionSwiper", {
+  slidesPerView: 5,
+  spaceBetween: 10,
+  loop: true,
+  navigation: {
+    nextEl: "#new2_books_section .swiper-button-next",
+    prevEl: "#new2_books_section .swiper-button-prev",
+  },
+  breakpoints: {
+    0: { slidesPerView: 2.2 },
+    768: { slidesPerView: 4 },
+    1024: { slidesPerView: 5 }
+  }
+});
+
+// 작가 출간작 슬라이더
+const authorWorksSwiper = new Swiper(".authorWorksSwiper", {
+  slidesPerView: 5,
+  spaceBetween: 10,
+  loop: true,
+  navigation: {
+    nextEl: ".author-works .swiper-button-next",
+    prevEl: ".author-works .swiper-button-prev",
+  },
+  breakpoints: {
+    0: { slidesPerView: 2.2 },
+    768: { slidesPerView: 4 },
+    1024: { slidesPerView: 5 }
+  }
+});
+
+  </script>
+
+  <script src="./js/book.js"></script>
+
+<script>
+/* ---------------------------
+   1) Kakao Book API (개선)
+---------------------------- */
+async function bookData() {
+  const REST_API_KEY = '7b2300fc6315bb65035d1a3c7b49b161';
+
+  const params = new URLSearchParams({
+    target: "title",
+    query: "킬 유어 달링"
+  });
+
+  const url = `https://dapi.kakao.com/v3/search/book?${params}`;
+
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: { Authorization: `KakaoAK ${REST_API_KEY}` }
+    });
+
+    if (!response.ok) throw new Error(`HTTP 오류: ${response.status}`);
+
+    const data = await response.json();
+    const book = data?.documents?.[0];
+
+    if (!book) {
+      console.warn("검색 결과가 없습니다.");
+      return;
+    }
+
+    const subBox = document.querySelector(".sub_box");
+    const contextBox = document.querySelector(".contextbox");
+    const priceNum = document.querySelector(".pricenum");
+
+    const { title, thumbnail, authors, price, contents } = book;
+
+    if (subBox) {
+      subBox.innerHTML = `
+        <h3>${title ?? ""}</h3>
+        ${thumbnail ? `<img src="${thumbnail}" alt="${title ?? 'book'} 표지">` : ""}
+      `;
+    }
+
+    if (priceNum) {
+      const priceText = (typeof price === "number")
+        ? `${price.toLocaleString()}원`
+        : `${price ?? ""}원`;
+      priceNum.textContent = priceText; // 누적(+=)하지 말고 덮어쓰기
+    }
+
+    if (contextBox) {
+      contextBox.innerHTML = `
+        <h6>${authors?.[0] ?? ""}</h6>
+        <p>${contents ?? ""}</p>
+        <span>자세히보기</span>
+      `;
+    }
+
+    // ✅ txt1에 책소개가 없을 때를 대비해서 introContent 기본값으로 contents 넣어두기(선택)
+    const introEl = document.getElementById("introContent");
+    if (introEl && introEl.textContent.includes("불러오는 중")) {
+      introEl.textContent = contents ?? "";
+    }
+
+  } catch (error) {
+    console.log('에러발생', error);
+  }
+}
+
+/* -----------------------------------------
+   2) txt1.txt 파싱: 책소개/목차/저자소개 추출
+   - txt1.txt에 "책 소개", "목차", "저자 소개" 제목이 있다고 하셨으니
+     그 제목 기준으로 내용 분리해서 넣습니다.
+------------------------------------------ */
+function parseTxtSections(rawText) {
+  // 제목 변형(띄어쓰기 유무)까지 대응
+  const headingRegex = /(책\s*소개|목차|저자\s*소개)\s*[:：]?\s*\n+/g;
+
+  const found = [];
+  let match;
+
+  while ((match = headingRegex.exec(rawText)) !== null) {
+    const heading = match[1].replace(/\s/g, ""); // 공백 제거(책소개/저자소개 통일)
+    let key = "";
+    if (heading === "책소개") key = "intro";
+    else if (heading === "목차") key = "toc";
+    else if (heading === "저자소개") key = "author";
+
+    found.push({ key, start: headingRegex.lastIndex, at: match.index });
+  }
+
+  // 제목을 하나도 못 찾으면 통째로 intro로 처리
+  if (found.length === 0) {
+    return { intro: rawText.trim(), toc: "", author: "" };
+  }
+
+  const result = { intro: "", toc: "", author: "" };
+
+  for (let i = 0; i < found.length; i++) {
+    const cur = found[i];
+    const next = found[i + 1];
+    const end = next ? next.at : rawText.length;
+    const chunk = rawText.slice(cur.start, end).trim();
+    result[cur.key] = chunk;
+  }
+  return result;
+}
+
+function textToHtml(text) {
+  // txt 파일이 "순수 텍스트"라면 줄바꿈 보이게 변환
+  // (txt 안에 HTML 태그가 들어있다면 이 함수를 쓰면 태그가 깨질 수 있어요.
+  //  그 경우엔 아래 replace를 제거하고 innerHTML로 그대로 넣으면 됩니다.)
+  const escaped = text
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+  return escaped.replaceAll("\n", "<br>");
+}
+
+async function loadTxt1() {
+  try {
+    const response = await fetch("./sub_txt/txt1.txt");
+    if (!response.ok) throw new Error("txt1.txt 로드 실패");
+
+    const raw = await response.text();
+    const sections = parseTxtSections(raw);
+
+    const introEl = document.getElementById("introContent");
+    const tocEl = document.getElementById("tocContent");
+    const authorEl = document.getElementById("authorContent");
+
+    if (introEl) introEl.innerHTML = sections.intro ? textToHtml(sections.intro) : "내용이 없습니다.";
+    if (tocEl) tocEl.innerHTML = sections.toc ? textToHtml(sections.toc) : "내용이 없습니다.";
+    if (authorEl) authorEl.innerHTML = sections.author ? textToHtml(sections.author) : "내용이 없습니다.";
+
+  } catch (error) {
+    console.error("txt1 로딩 에러:", error);
+
+    // 실패 시에도 UI가 깨지지 않게 처리
+    ["introContent","tocContent","authorContent"].forEach(id=>{
+      const el = document.getElementById(id);
+      if (el) el.textContent = "내용을 불러오지 못했습니다. (로컬에서는 서버 실행 필요)";
+    });
+  }
+}
+
+/* -----------------------------------------
+   3) 탭 클릭 -> 해당 섹션으로 스크롤 이동 + active 표시
+------------------------------------------ */
+function setupTabs() {
+  const tabButtons = document.querySelectorAll(".tab-btn");
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      // active 처리
+      tabButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      // 스크롤 이동
+      const targetSelector = btn.getAttribute("data-target");
+      const targetEl = document.querySelector(targetSelector);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+
+  // (선택) 스크롤로 내려가도 현재 섹션에 맞춰 탭 active 바꾸고 싶으면 IntersectionObserver 추가 가능
+}
+
+async function loadTxt2() {
+  try {
+    const response = await fetch("./sub_txt/txt2.txt");
+    if (!response.ok) throw new Error("txt2.txt 로드 실패");
+    const raw = await response.text();
+
+    const el = document.getElementById("ebookGuideContent");
+    if (el) el.innerHTML = textToHtml(raw);
+
+  } catch (e) {
+    const el = document.getElementById("ebookGuideContent");
+    if (el) el.textContent = "내용을 불러오지 못했습니다. (로컬에서는 서버 실행 필요)";
+  }
+}
+
+
+/* -----------------------------------------
+   4) DOMContentLoaded: 한 번만 실행되게 정리
+------------------------------------------ */
+document.addEventListener("DOMContentLoaded", async () => {
+  setupTabs();
+  await loadTxt1();   // txt 먼저 넣고
+  await bookData();   // API 데이터로 상단 영역 채우기
+});
+</script>    
+</body>
+</html>
