@@ -89,7 +89,7 @@ async function fillSection({ boxSelector, queries, size = 17 }) {
     let badgeHtml = "";
     if (isFree) {
       badgeHtml = `<div class="badge-free">1권<br>무료</div>`;
-      } else if (isNewSection) {
+    } else if (isNewSection) {
       // 10% 적립용 클래스 badge-save 추가
       badgeHtml = `<div class="badge-free badge-save">10%<br>적립</div>`;
     }
@@ -193,9 +193,9 @@ async function fillTopList({ listSelector, queries, size = 5, genreLabel = "" })
     li.innerHTML = `
       <a href="${link}" target="_blank" rel="noopener" class="top7-link">
         ${thumb
-          ? `<img class="top7-thumb" src="${thumb}" alt="${title}">`
-          : `<div class="top7-thumb ph"></div>`
-        }
+        ? `<img class="top7-thumb" src="${thumb}" alt="${title}">`
+        : `<div class="top7-thumb ph"></div>`
+      }
         <p class="top7-meta">
           <strong class="top7-title">${title}</strong>
           <span class="top7-author">${authors || "저자 정보 없음"}</span>
@@ -348,8 +348,8 @@ async function initBookSections() {
       genreLabel: "경제/경영",
     });
 
-    
-// ✅ 서점 1권(제목만)
+
+    // ✅ 서점 1권(제목만)
     await fillSection({
       boxSelector: "section.bj-section .book-grid a.book-item",
       queries: ["킬 유어 달링"],
@@ -383,3 +383,14 @@ async function initBookSections() {
 
 // DOM 준비 후 실행
 document.addEventListener("DOMContentLoaded", initBookSections);
+const categoryButtons = document.querySelectorAll('.category-list__btn');
+const chartTitle = document.querySelector('.chart-header-main .section__title');
+
+categoryButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    categoryButtons.forEach(b => b.classList.remove('is-active'));
+    btn.classList.add('is-active');
+    const categoryName = btn.textContent.replace(' >', '');
+    chartTitle.textContent = categoryName + ' 베스트';
+  });
+});

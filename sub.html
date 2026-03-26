@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>sub</title>
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./css/sub.css">
 </head>
 
@@ -93,7 +94,7 @@
           <div class="book-rating">
             <img src="./img/sbstar.jpg" alt="별점" class="star-img">
             <span class="score">0.0 (0명)</span>
-            <a href="#"><img src="./img/sb2.jpeg" alt="서평"class="icon-20"> 서평(0)</a>
+            <a href="#"><img src="./img/sb2.jpeg" alt="서평" class="icon-20"> 서평(0)</a>
             <a href="#"><img src="./img/sb3.webp" alt="공유" class="icon-20"> 공유하기</a>
           </div>
           <div class="info-box">
@@ -118,7 +119,7 @@
           </div>
           <div class="device-info">
             <p>지원단말기: iOS 11.0이상, Android 6.0이상, PC Windows 8 이상</p>
-            <p class="tts"><img src="./img/sb6.webp" alt="TTS"class="icon-20"> 듣기(TTS) 지원 <span>(모바일 전용)</span></p>
+            <p class="tts"><img src="./img/sb6.webp" alt="TTS" class="icon-20"> 듣기(TTS) 지원 <span>(모바일 전용)</span></p>
           </div>
           <div class="action-buttons">
             <button class="icon-btn border"><img src="./img/sb4.jpeg" alt="카트"></button>
@@ -172,8 +173,25 @@
     </section>
 
 
-    <section class="section bj-section">
+   
+<section class="bjbj">
+  <header>
+    <h2>작가의 출간작</h2>
+  </header>
 
+  <nav class="tab-nav">
+    <button type="button" class="tab-btn active" data-target="#tab-intro">
+      피터 스완슨
+    </button>
+    <button type="button" class="tab-btn" data-target="#tab-toc">
+      노진선
+    </button>
+  </nav>
+</section>
+
+
+
+    <section class="section bj-section">
       <header class="flex-between">
         <h2 class="section__title">서점</h2>
 
@@ -222,7 +240,6 @@
 
 
     <section class="ebook-guide">
-      <h2 class="section__title">eBook 이용안내</h2>
       <div id="ebookGuideContent" class="guide-body">불러오는 중...</div>
     </section>
   </main>
@@ -325,27 +342,6 @@
       navigation: {
         nextEl: "#new2_books_section .swiper-button-next",
         prevEl: "#new2_books_section .swiper-button-prev",
-      },
-      breakpoints: {
-        0: { slidesPerView: 2.2 },
-        768: { slidesPerView: 4 },
-        1024: { slidesPerView: 5 }
-      }
-    });
-
-    // 작가 출간작 슬라이더
-    const authorWorksSwiper = new Swiper(".authorWorksSwiper", {
-      slidesPerView: 5,
-      spaceBetween: 10,
-      loop: true,
-      navigation: {
-        nextEl: ".author-works .swiper-button-next",
-        prevEl: ".author-works .swiper-button-prev",
-      },
-      breakpoints: {
-        0: { slidesPerView: 2.2 },
-        768: { slidesPerView: 4 },
-        1024: { slidesPerView: 5 }
       }
     });
 
@@ -354,9 +350,6 @@
   <script src="./js/book.js"></script>
 
   <script>
-    /* ---------------------------
-       1) Kakao Book API (개선)
-    ---------------------------- */
     async function bookData() {
       const REST_API_KEY = '7b2300fc6315bb65035d1a3c7b49b161';
 
@@ -399,7 +392,7 @@
           const priceText = (typeof price === "number")
             ? `${price.toLocaleString()}원`
             : `${price ?? ""}원`;
-          priceNum.textContent = priceText; // 누적(+=)하지 말고 덮어쓰기
+          priceNum.textContent = priceText;
         }
 
         if (contextBox) {
@@ -410,7 +403,6 @@
       `;
         }
 
-        // ✅ txt1에 책소개가 없을 때를 대비해서 introContent 기본값으로 contents 넣어두기(선택)
         const introEl = document.getElementById("introContent");
         if (introEl && introEl.textContent.includes("불러오는 중")) {
           introEl.textContent = contents ?? "";
@@ -421,11 +413,6 @@
       }
     }
 
-    /* -----------------------------------------
-       2) txt1.txt 파싱: 책소개/목차/저자소개 추출
-       - txt1.txt에 "책 소개", "목차", "저자 소개" 제목이 있다고 하셨으니
-         그 제목 기준으로 내용 분리해서 넣습니다.
-    ------------------------------------------ */
     function parseTxtSections(rawText) {
       // 제목 변형(띄어쓰기 유무)까지 대응
       const headingRegex = /(책\s*소개|목차|저자\s*소개)\s*[:：]?\s*\n+/g;
@@ -434,7 +421,7 @@
       let match;
 
       while ((match = headingRegex.exec(rawText)) !== null) {
-        const heading = match[1].replace(/\s/g, ""); // 공백 제거(책소개/저자소개 통일)
+        const heading = match[1].replace(/\s/g, "");
         let key = "";
         if (heading === "책소개") key = "intro";
         else if (heading === "목차") key = "toc";
@@ -443,7 +430,6 @@
         found.push({ key, start: headingRegex.lastIndex, at: match.index });
       }
 
-      // 제목을 하나도 못 찾으면 통째로 intro로 처리
       if (found.length === 0) {
         return { intro: rawText.trim(), toc: "", author: "" };
       }
@@ -461,9 +447,6 @@
     }
 
     function textToHtml(text) {
-      // txt 파일이 "순수 텍스트"라면 줄바꿈 보이게 변환
-      // (txt 안에 HTML 태그가 들어있다면 이 함수를 쓰면 태그가 깨질 수 있어요.
-      //  그 경우엔 아래 replace를 제거하고 innerHTML로 그대로 넣으면 됩니다.)
       const escaped = text
         .replaceAll("&", "&amp;")
         .replaceAll("<", "&lt;")
@@ -490,7 +473,6 @@
       } catch (error) {
         console.error("txt1 로딩 에러:", error);
 
-        // 실패 시에도 UI가 깨지지 않게 처리
         ["introContent", "tocContent", "authorContent"].forEach(id => {
           const el = document.getElementById(id);
           if (el) el.textContent = "내용을 불러오지 못했습니다. (로컬에서는 서버 실행 필요)";
@@ -498,9 +480,6 @@
       }
     }
 
-    /* -----------------------------------------
-       3) 탭 클릭 -> 해당 섹션으로 스크롤 이동 + active 표시
-    ------------------------------------------ */
     function setupTabs() {
       const tabButtons = document.querySelectorAll(".tab-btn");
 
@@ -522,10 +501,42 @@
       // (선택) 스크롤로 내려가도 현재 섹션에 맞춰 탭 active 바꾸고 싶으면 IntersectionObserver 추가 가능
     }
 
+    function textToHtml(text) {
+      const lines = text
+        .split('\n')
+        .map(line => line.trim())
+        .filter(line => line !== '');
+
+      if (lines.length === 0) return '';
+
+      const title = lines[0];       // 첫 줄: 제목
+      const items = lines.slice(1); // 나머지: 항목들
+
+
+      return `
+    <div class="guide-body">
+      <div class="guide-title"><strong>${escapeHtml(title)}</strong></div>
+      ${items.length ? `<ul class="guide-list">${items.map(i => `<li>${escapeHtml(i)}</li>`).join('')}</ul>` : ''}
+    </div>
+  `;
+    }
+
+    function escapeHtml(str) {
+      return str
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
+
+
+
     async function loadTxt2() {
       try {
         const response = await fetch("./sub_txt/txt2.txt");
         if (!response.ok) throw new Error("txt2.txt 로드 실패");
+
         const raw = await response.text();
 
         const el = document.getElementById("ebookGuideContent");
@@ -537,14 +548,11 @@
       }
     }
 
-
-    /* -----------------------------------------
-       4) DOMContentLoaded: 한 번만 실행되게 정리
-    ------------------------------------------ */
     document.addEventListener("DOMContentLoaded", async () => {
       setupTabs();
-      await loadTxt1();   // txt 먼저 넣고
-      await bookData();   // API 데이터로 상단 영역 채우기
+      await loadTxt1();
+      await loadTxt2();
+      await bookData();
     });
   </script>
 </body>

@@ -407,6 +407,9 @@ main.container {
   color: var(--primary);
 }
 
+
+
+
 .best-field header {
   border-bottom: 1px solid #ddd;
   margin-bottom: 15px;
@@ -537,8 +540,7 @@ main.container {
   background: #fff;
 }
 
-.new-books1-section header,
-.freeb-section header {
+.new-books1-section header {
   border-bottom: 1px solid #ddd;
   margin-bottom: 15px;
 }
@@ -558,10 +560,28 @@ main.container {
 
 /* ebook 안내 */
 .guide-body {
-  border: 1px solid #eee;
+  background: #f5f5f5;
   border-radius: 12px;
   padding: 14px;
 }
+
+.guide-title {
+  font-weight: 700;     /* ✅ 굵게 */
+  margin-bottom: 10px;
+}
+
+/* 내용 앞에 닷(•) */
+.guide-body ul {
+  margin: 0;
+  padding-left: 18px;   /* 들여쓰기 */
+  list-style: disc;     /* ✅ 기본 닷 */
+}
+
+.guide-body li {
+  margin: 6px 0;
+  line-height: 1.5;
+}
+
 
 /* Footer */
 .footer {
