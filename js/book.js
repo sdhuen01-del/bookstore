@@ -106,8 +106,8 @@ async function fillSection({ boxSelector, queries, size = 17 }) {
         ${badgeHtml}
         <img src="${thumb}" alt="${title}">
       </div>
-      <h3>${title}</h3>
-      <h6>${authors}</h6>
+      <h4>${title}</h4>
+      <h5>${authors}</h5>
     `;
   }
 }
@@ -354,8 +354,7 @@ async function initBookSections() {
       boxSelector: "section.bj-section .book-grid a.book-item",
       queries: ["킬 유어 달링"],
       size: 10,
-      renderMode: "storeTitleOnly",
-      forceInternalLink: "./book_detail.html"
+
     });
 
     // ✅ 이 분야의 베스트 5권(저자 포함)
@@ -363,13 +362,13 @@ async function initBookSections() {
       boxSelector: "section.best-field .book-grid a.book-item",
       queries: [
         "양들의 침묵",
-        "세계추리 소설단편",
+        "추리 소설단편",
         "에이전트 AGENT",
         "만능감정사 Q의 사건수첩",
         "법의관"
       ],
-      size: 10,
-      renderMode: "bestWithAuthor"
+      size: 4,
+
     });
 
 
