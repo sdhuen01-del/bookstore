@@ -43,3 +43,5 @@
         prevEl: "#new2_books_section .swiper-button-prev",
       }
     });
+
+  

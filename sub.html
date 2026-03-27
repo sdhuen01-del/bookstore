@@ -8,6 +8,8 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./css/sub.css">
+  <link rel="stylesheet" href="./css/common.css">
+
 </head>
 
 <body>
@@ -68,7 +70,6 @@
       </nav>
     </div>
   </header>
-
 
   <main class="container">
     <section class="page-path">
@@ -180,7 +181,6 @@
       <div class="tabs">
         <div class="tab active">전체</div>
       </div>
-
       <div class="filter-bar">
         <div class="sort-options">
           <span>좋아요순</span>
@@ -192,14 +192,13 @@
           <span class="count">(0명)</span>
         </div>
       </div>
-
       <div class="content-area">
         <p>회원님께서 첫 서평의 주인공이 되어주세요.</p>
       </div>
     </div>
-
-
-
+  </main>
+   
+  <main class="site-main">
     <section class="bjbj">
       <header>
         <h2>작가의 출간작</h2>
@@ -215,28 +214,19 @@
         </button>
       </nav>
     </section>
-
-
-
-
     <section class="section bj-section">
-
       <header class="flex-between">
         <h2 class="section__title">서점</h2>
         <a href="index.html" class="more-link">인기순 | 최신순</a>
       </header>
-
-
       <div class="book-grid">
         <a href="index.html" class="book-item bj-item flex-center"></a>
       </div>
     </section>
-
     <section class="best-field">
       <header class="flex-between">
         <h2 class="section__title">이 분야의 베스트</h2>
         <a href="index.html" class="more-link">더보기 &#43;</a>
-
       </header>
       <div class="book-grid">
         <a class="book-item"></a>
@@ -246,7 +236,6 @@
         <a class="book-item"></a>
       </div>
     </section>
-
     <section id="new2_books_section" class="slider-section" aria-label="피터 스완슨 최신작 슬라이더">
       <header class="flex-between">
         <h2 class="section__title">피터 스완슨 최신작! [킬유어 달링] 특집</h2>
@@ -265,8 +254,6 @@
         <div class="swiper-button-prev"></div>
       </div>
     </section>
-
-
     <section class="ebook-guide">
       <div id="ebookGuideContent" class="guide-body">불러오는 중...</div>
     </section>
@@ -285,7 +272,6 @@
         <div class="footer-banner">
           <a href="index.html"><img src="./img/apk_down_banner.jpg" alt="앱 다운로드 배너"></a>
         </div>
-
         <div class="footer-links">
           <div class="footer-group">
             <h3 class="group-title">서비스</h3>
@@ -294,7 +280,6 @@
               <a href="index.html"><img src="./img/icon/iconb2.png" alt="앱 다운로드">앱 다운로드</a>
             </div>
           </div>
-
           <div class="footer-group">
             <h3 class="group-title">바로가기</h3>
             <div class="icon-row">
@@ -308,7 +293,6 @@
         </div>
       </div>
     </section>
-
     <section class="footer-section section-2">
       <div class="footer-inner">
         <nav class="footer-nav">
@@ -326,20 +310,17 @@
           <span>|</span>
           <a href="index.html">작가/출판사 전용메뉴</a>
         </nav>
-
         <div class="icon-group">
           <a href="index.html" class="icon-link"><img src="./img/gb1.JPG" alt="Google Play" class="height-40"></a>
           <a href="index.html" class="icon-link"><img src="./img/ab1.JPG" alt="App Store" class="height-40"></a>
           <a href="index.html" class="icon-link"><img src="./img/bb1.JPG" alt="소득공제" class="height-40"></a>
           <a href="index.html" class="icon-link"><img src="./img/eb1.JPG" alt="이메일 문의" class="height-40"></a>
-
           <a href="index.html" class="icon-link"><img src="./img/gn2.JPG" alt="X" class="height-30"></a>
           <a href="index.html" class="icon-link"><img src="./img/nb2.JPG" alt="Naver Blog" class="height-30"></a>
           <a href="index.html" class="icon-link"><img src="./img/fb2.JPG" alt="Facebook" class="height-30"></a>
           <a href="index.html" class="icon-link"><img src="./img/ins2.JPG" alt="Instagram" class="height-30"></a>
           <a href="index.html" class="icon-link"><img src="./img/yt2.JPG" alt="YouTube" class="height-30"></a>
         </div>
-
         <address class="company-info">
           상호 : 주식회사 북큐브네트웍스 <span>|</span> 대표이사 : 유철종 <span>|</span> 주소 : 우)08380 서울 구로구 디지털로 33길 27, 삼성IT밸리 905~907호
           <span>|</span> 사업자 등록번호 : 113-86-24199<br> 통신판매업 신고번호 : 제 2008-서울구로-0747호 <span>|</span>
@@ -349,7 +330,6 @@
         </address>
       </div>
     </section>
-
     <section class="footer-section section-3">
       <div class="footer-inner footer-bottom">
         <p>&copy; 2026 BOOKCUBE NETWORKS. ALL RIGHTS RESERVED.</p>
@@ -357,27 +337,9 @@
       </div>
     </section>
   </footer>
-
   <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-
-  <script>
-
-    // 피터 스완슨 최신작 슬라이더
-    const new2_books_sectionSwiper = new Swiper(".new2_books_sectionSwiper", {
-      slidesPerView: 5,
-      spaceBetween: 10,
-      loop: true,
-      navigation: {
-        nextEl: "#new2_books_section .swiper-button-next",
-        prevEl: "#new2_books_section .swiper-button-prev",
-      }
-    });
-
-  </script>
-
+  <script src="./js/swiper.js"></script>
   <script src="./js/book.js"></script>
   <script src="./js/sub.js"></script>
-
 </body>
-
 </html>

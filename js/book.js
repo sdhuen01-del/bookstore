@@ -1,4 +1,3 @@
-
 // ==========================
 // 1) 공통: Kakao 책 검색
 // ==========================
@@ -106,8 +105,8 @@ async function fillSection({ boxSelector, queries, size = 17 }) {
         ${badgeHtml}
         <img src="${thumb}" alt="${title}">
       </div>
-      <h4>${title}</h4>
-      <h5>${authors}</h5>
+      <h3>${title}</h3>
+      <h6>${authors}</h6>
     `;
   }
 }
@@ -247,6 +246,8 @@ async function initBookSections() {
       ],
       size: 17,
     });
+
+
 
 
     await fillSection({
