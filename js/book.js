@@ -31,7 +31,6 @@ function pickBestDocument(documents = []) {
   return documents.find((d) => d.thumbnail && d.thumbnail !== "" && d.contents && d.contents !== "");
 }
 
-// 안전한 텍스트 출력(간단 XSS 방지)
 function escapeHtml(str = "") {
   return String(str)
     .replaceAll("&", "&amp;")
@@ -41,9 +40,6 @@ function escapeHtml(str = "") {
     .replaceAll("'", "&#039;");
 }
 
-// ==========================
-// 2) 섹션 채우기 공통 함수
-// ==========================
 async function fillSection({ boxSelector, queries, size = 17 }) {
   const boxes = document.querySelectorAll(boxSelector);
 
@@ -52,10 +48,7 @@ async function fillSection({ boxSelector, queries, size = 17 }) {
     return;
   }
 
-  // query 개수와 박스 개수 중 작은 쪽까지만 채움
   const count = Math.min(boxes.length, queries.length);
-
-  // 병렬로 가져오기 (빠름)
   const results = await Promise.all(
     queries.slice(0, count).map((q) => fetchBooks(q, size).catch((e) => ({ error: e })))
   );
@@ -64,7 +57,6 @@ async function fillSection({ boxSelector, queries, size = 17 }) {
     const box = boxes[i];
     const result = results[i];
 
-    // 실패한 케이스
     if (result?.error) {
       console.error(`[fillSection] API 실패: "${queries[i]}"`, result.error);
       continue;
@@ -93,8 +85,7 @@ async function fillSection({ boxSelector, queries, size = 17 }) {
       badgeHtml = `<div class="badge-free badge-save">10%<br>적립</div>`;
     }
     // box가 <a>면 실제 링크로 연결
-    if (box.tagName === "A") {
-      box.href = link || "#";
+    if (box.tagName === "a") {
       box.target = "_blank";
       box.rel = "noopener";
     }
@@ -190,7 +181,7 @@ async function fillTopList({ listSelector, queries, size = 5, genreLabel = "" })
     const thumb = doc.thumbnail || "";
 
     li.innerHTML = `
-      <a href="${link}" target="_blank" rel="noopener" class="top7-link">
+      <a href="" target="_blank" rel="noopener" class="top7-link">
         ${thumb
         ? `<img class="top7-thumb" src="${thumb}" alt="${title}">`
         : `<div class="top7-thumb ph"></div>`
@@ -287,7 +278,7 @@ async function initBookSections() {
 
 
     await fillSection({
-      boxSelector: "section.freeb-section .book-grid a.book-item.freeb-item.flex-center",
+      boxSelector: ".freeb-section .book-grid a.book-item.freeb-item.flex-center",
       queries: [
         "(밀레니엄 2권)불을 가지고 노는",
         "게으른 게 아니라 충전중입니다",
